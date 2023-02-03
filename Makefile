@@ -28,12 +28,14 @@ SRC_PATH	= ./
 HEADERS		= incl
 
 # ------------  FLAGS  ------------------------------------------------------- #
-CFLAGS 		= -Wall -Wextra -Werror -fsanitize=address
+CFLAGS 		= -Wall -Wextra -Werror
 CC			= @cc
 RM			= rm -rf
 
 # ------------  SOURCE FILES  ------------------------------------------------ #
-SRC 		= 	main.c
+SRC 		= 	main.c							\
+				utils_lst.c						\
+				utils_lst2.c
 
 # ------------  FILEPATHS  --------------------------------------------------- #
 SRCS 		= $(addprefix $(SRC_PATH),$(SRC))
