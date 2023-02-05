@@ -12,7 +12,7 @@
 
 #include "minishell.h"
 
-t_cmd	*splitting_cmd(t_shell *shell)
+t_cmd	*parse_cmd(t_shell *shell)
 {
 	char 	**cmd;
 	int		i;
@@ -25,16 +25,22 @@ t_cmd	*splitting_cmd(t_shell *shell)
 		i++;
 	}
 	free(cmd);
+
 	return (shell->cmd);
+}
+
+void	execution()
+{
+	printf("Execution non implemente\n");
 }
 
 void	parsing(t_shell *shell)
 {
 	if (shell->read)
 		add_history(shell->read);
-	shell->cmd = splitting_cmd(shell);
+	shell->cmd = parse_cmd(shell);
 	lst_show(shell->cmd);
-	//Execution();
+	execution();
 	free_lst(shell);
 	free(shell->read);
 }
