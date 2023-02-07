@@ -12,20 +12,35 @@
 
 #include "minishell.h"
 
-t_cmd	*parse_cmd(t_shell *shell)
+int is_token(char *c)
 {
-	char 	**cmd;
-	int		i;
+	if (*c == ' ')
+		printf("[ ]");
+	else if (*c == '\n')
+		printf("[\n]");
+	else if (*c == '|')
+		printf("[|]");
+	else if (*c == '\'')
+		printf("[']");
+	else if (*c == '"')
+		printf("[\"]");
+	else if (*c == '>')
+		printf("[>]");
+	else if (*c == '<')
+		printf("[<]");
+	return (1);
+}
+//"ls > cat.txt" == [ls][ ][>][ ][cat.txt]
+t_cmd	*parse_rd(t_shell *shell)
+{
+	int i;
 
-	cmd = ft_split(shell->read, ' ');
 	i = 0;
-	while (cmd[i])
+	while (shell->read[i])
 	{
-		lst_add_back(&shell->cmd, lst_create(cmd[i]));
+		is_token(shell->read);
 		i++;
 	}
-	free(cmd);
-
 	return (shell->cmd);
 }
 
@@ -38,7 +53,7 @@ void	parsing(t_shell *shell)
 {
 	if (shell->read)
 		add_history(shell->read);
-	shell->cmd = parse_cmd(shell);
+	shell->cmd = parse_rd(shell);
 	lst_show(shell->cmd);
 	execution();
 	free_lst(shell);
