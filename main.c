@@ -30,35 +30,28 @@ int is_token(char c)
 		return (1);
 	return (0);
 }
+
 //"ls > cat.txt" == [ls][ ][>][ ][cat.txt]
 t_cmd	*parse_rd(t_shell *shell)
 {
 	int i;
 	int j;
-	int x;
 
 	i = 0;
 	j = 0;
-	x = 0;
 	while (shell->read[i])
 	{
-		if (is_token(shell->read[i]))
+		if (is_token(shell->read[i + 1]) || !shell->read[i + 1])
 		{
+			if (i - j + 1 > 0)
+				lst_add_back(&shell->cmd, lst_create(ft_substr(shell->read, j, i - j + 1)));
+			j = i;
 			j++;
-			if (is_token(shell->read[i + 1]))
-				j++;
-
+			if (shell->read[j])
+				lst_add_back(&shell->cmd, lst_create(ft_substr(shell->read, j, 1)));
+			j++;
 		}
-		else
-		{
-			j = 0;
-			if (is_token(shell->read[i + 1]) || !shell->read[i + 1])
-			{
-				lst_add_back(&shell->cmd, lst_create(ft_substr(shell->read, x, i + j)));
-				x += i;
-			}
-			i++;
-		}
+		i++;
 	}
 	return (shell->cmd);
 }
