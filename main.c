@@ -12,34 +12,54 @@
 
 #include "minishell.h"
 
-int is_token(char *c)
+int is_token(char c)
 {
-	if (*c == ' ')
-		printf("[ ]");
-	else if (*c == '\n')
-		printf("[\n]");
-	else if (*c == '|')
-		printf("[|]");
-	else if (*c == '\'')
-		printf("[']");
-	else if (*c == '"')
-		printf("[\"]");
-	else if (*c == '>')
-		printf("[>]");
-	else if (*c == '<')
-		printf("[<]");
-	return (1);
+	if (c == ' ')
+		return (1);
+	else if (c == '\n')
+		return (1);
+	else if (c == '|')
+		return (1);
+	else if (c == '\'')
+		return (1);
+	else if (c == '"')
+		return (1);
+	else if (c == '>')
+		return (1);
+	else if (c == '<')
+		return (1);
+	return (0);
 }
 //"ls > cat.txt" == [ls][ ][>][ ][cat.txt]
 t_cmd	*parse_rd(t_shell *shell)
 {
 	int i;
+	int j;
+	int x;
 
 	i = 0;
+	j = 0;
+	x = 0;
 	while (shell->read[i])
 	{
-		is_token(shell->read);
-		i++;
+		if (is_token(shell->read[i]))
+		{
+			j++;
+			if (is_tokeadn(shell->read[i + 1]))
+				j++;
+			i++;
+			lst_add_back(&shell->cmd, lst_create(ft_substr(shell->read, x, i + j)));
+			x += i;
+		}
+		else
+		{
+			i++;
+			if (is_token(shell->read[i]) || !shell->read[i])
+			{
+				lst_add_back(&shell->cmd, lst_create(ft_substr(shell->read, 0, i + j)));
+				x += i;
+			}
+		}
 	}
 	return (shell->cmd);
 }

@@ -21,14 +21,6 @@
 # include <readline/readline.h>
 # include <readline/history.h>
 
-typedef struct s_tok
-{
-	struct s_tok	*next;
-	int				type;
-	int				pos;
-	char			*content;
-}					t_tok;
-
 typedef struct	s_cmd
 {
 	char *cmd;
@@ -41,7 +33,6 @@ typedef struct s_shell
 {
 	char			*read;
 	t_cmd 			*cmd;
-	t_tok 			*tok;
 }	t_shell;
 //////////////////////////////MAIN.C////////////////////////////////////////////
 
