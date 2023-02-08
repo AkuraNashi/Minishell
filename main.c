@@ -45,20 +45,19 @@ t_cmd	*parse_rd(t_shell *shell)
 		if (is_token(shell->read[i]))
 		{
 			j++;
-			if (is_tokeadn(shell->read[i + 1]))
+			if (is_token(shell->read[i + 1]))
 				j++;
-			i++;
-			lst_add_back(&shell->cmd, lst_create(ft_substr(shell->read, x, i + j)));
-			x += i;
+
 		}
 		else
 		{
-			i++;
-			if (is_token(shell->read[i]) || !shell->read[i])
+			j = 0;
+			if (is_token(shell->read[i + 1]) || !shell->read[i + 1])
 			{
-				lst_add_back(&shell->cmd, lst_create(ft_substr(shell->read, 0, i + j)));
+				lst_add_back(&shell->cmd, lst_create(ft_substr(shell->read, x, i + j)));
 				x += i;
 			}
+			i++;
 		}
 	}
 	return (shell->cmd);
