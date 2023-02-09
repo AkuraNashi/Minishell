@@ -46,4 +46,9 @@ int		lst_len(t_cmd *lst);
 //////////////////////////////UTILS_LST2.C//////////////////////////////////////
 void	free_lst(t_shell *shell);
 
+///////////////////////////////PARSING.C////////////////////////////////////////
+t_cmd	*parse_rd(t_shell *shell);
+int 	is_token(char c);
+void	parse_cmd(t_shell *shell);
+void	parse_quotes(t_shell *shell);
 #endif
