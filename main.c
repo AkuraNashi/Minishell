@@ -12,7 +12,7 @@
 
 #include "minishell.h"
 
-void	execution()
+void	execution(void)
 {
 	printf("Execution non implemente\n");
 }
@@ -37,14 +37,11 @@ void	init_shell(t_shell *shell)
 
 int	main(int ac, char **av, char **env)
 {
-//	char *vt[] = {"ls", NULL, NULL};
-//	char *rd;
-	t_shell shell;
+	t_shell	shell;
 
 	(void)ac;
 	(void)av;
 	(void)env;
-
 	init_shell(&shell);
 	while (1)
 	{
@@ -52,7 +49,7 @@ int	main(int ac, char **av, char **env)
 		if (shell.read)
 			parsing(&shell);
 		else
-			break 	;
+			break ;
 	}
 	free(shell.read);
 	return (0);

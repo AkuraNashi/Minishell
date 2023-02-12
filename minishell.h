@@ -21,21 +21,20 @@
 # include <readline/readline.h>
 # include <readline/history.h>
 
-typedef struct	s_cmd
+typedef struct s_cmd
 {
-	char *cmd;
-	char **cmd_args;
-	int *fd;
-	struct s_cmd    *next;
+	char			*cmd;
+	char			**cmd_args;
+	int				*fd;
+	struct s_cmd	*next;
 }	t_cmd;
 
 typedef struct s_shell
 {
 	char			*read;
-	t_cmd 			*cmd;
+	t_cmd			*cmd;
 }	t_shell;
 //////////////////////////////MAIN.C////////////////////////////////////////////
-
 
 //////////////////////////////UTILS_LST.C///////////////////////////////////////
 void	lst_show(t_cmd *lst);
@@ -48,7 +47,7 @@ void	free_lst(t_shell *shell);
 
 ///////////////////////////////PARSING.C////////////////////////////////////////
 t_cmd	*parse_rd(t_shell *shell);
-int 	is_token(char c);
+int		is_token(char c);
 void	parse_cmd(t_shell *shell);
 void	parse_quotes(t_shell *shell);
 #endif
