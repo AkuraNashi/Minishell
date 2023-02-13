@@ -62,30 +62,33 @@ void	parse_cmd(t_shell *shell)
 	parse_quotes(shell);
 }
 
+//boolean lvain (if (lvain) sylvain)
 void	parse_quotes(t_shell *shell)
 {
 	t_cmd	*tmp;
 	t_cmd	*new_tmp;
 	char	c;
-	int		b;
+	int i;
 
-	b = 0;
+	i = 0;
+
 	tmp = shell->cmd;
 	while (tmp)
 	{
 		//bug avec aaaaa bb         c "ee       '  aaa   '   d  "   .    dd
 		//Resultat attendu : [aaaaa][bb][c]["][ee][ ][ ][ ][ ][ ][ ][ ]['][ ][ ][aaa][ ][ ][ ]['][ ][ ][ ][d][ ][ ]["][.][dd]
-		if ((tmp->cmd[0] == '\'' || tmp->cmd[0] == '\"') && b == 0)
+		if (tmp->cmd[0] == '\'' || tmp->cmd[0] == '\"')
 		{
 			c = tmp->cmd[0];
-			b = 1;
+			tmp = tmp->next;
+			while (tmp->cmd[0] != c)
+			{
+				i++;
+				printf("i : [%d]\n", i);
+				tmp = tmp->next;
+			}
 		}
-		else if ((tmp->cmd[0] == '\'' || tmp->cmd[0] == '\"') && b == 1 && tmp->cmd[0] == c)
-		{
-			c = tmp->cmd[0];
-			b = 0;
-		}
-		else if (tmp->cmd[0] == ' ' && b == 0 && c != tmp->cmd[0])
+		else if (tmp->cmd[0] == ' ')
 		{
 			new_tmp->next = tmp->next;
 			tmp->next = NULL;
@@ -93,7 +96,6 @@ void	parse_quotes(t_shell *shell)
 		}
 		else
 			new_tmp = tmp;
-		printf("b : [%d] char : [%s] c : [%c]\n", b, tmp->cmd, c);
 		tmp = tmp->next;
 	}
 }
