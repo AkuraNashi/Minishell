@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lcamilo- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,9 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minishell.h"
+#include "../minishell.h"
 
-int is_token(char c)
+int	is_token(char c)
 {
 	if (c == ' ')
 		return (1);
@@ -31,11 +31,10 @@ int is_token(char c)
 	return (0);
 }
 
-//"ls > cat.txt" == [ls][ ][>][ ][cat.txt]
 t_cmd	*parse_rd(t_shell *shell)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 
 	i = 0;
 	j = 0;
@@ -44,11 +43,13 @@ t_cmd	*parse_rd(t_shell *shell)
 		if (is_token(shell->read[i + 1]) || !shell->read[i + 1])
 		{
 			if (i - j + 1 > 0)
-				lst_add_back(&shell->cmd, lst_create(ft_substr(shell->read, j, i - j + 1)));
+				lst_add_back(&shell->cmd, lst_create(ft_substr(
+							shell->read, j, i - j + 1)));
 			j = i;
 			j++;
 			if (shell->read[j])
-				lst_add_back(&shell->cmd, lst_create(ft_substr(shell->read, j, 1)));
+				lst_add_back(&shell->cmd, lst_create(ft_substr(
+							shell->read, j, 1)));
 			j++;
 		}
 		i++;
@@ -56,45 +57,45 @@ t_cmd	*parse_rd(t_shell *shell)
 	return (shell->cmd);
 }
 
-void	execution(void)
+void	parse_cmd(t_shell *shell)
 {
-	printf("Execution non implemente\n");
+	parse_quotes(shell);
 }
 
-void	parsing(t_shell *shell)
+//boolean lvain (if (lvain) sylvain)
+void	parse_quotes(t_shell *shell)
 {
-	if (shell->read)
-		add_history(shell->read);
-	shell->cmd = parse_rd(shell);
-	parse_cmd(shell);
-	execution();
-	lst_show(shell->cmd);
-	free_lst(shell);
-	free(shell->read);
-}
+	t_cmd	*tmp;
+	t_cmd	*new_tmp;
+	char	c;
+	int i;
 
-void	init_shell(t_shell *shell)
-{
-	shell->cmd = NULL;
-	shell->read = NULL;
-}
+	i = 0;
 
-int	main(int ac, char **av, char **env)
-{
-	t_shell	shell;
-
-	(void)ac;
-	(void)av;
-	(void)env;
-	init_shell(&shell);
-	while (1)
+	tmp = shell->cmd;
+	while (tmp)
 	{
-		shell.read = readline("Minishell >");
-		if (shell.read)
-			parsing(&shell);
+		//bug avec aaaaa bb         c "ee       '  aaa   '   d  "   .    dd
+		//Resultat attendu : [aaaaa][bb][c]["][ee][ ][ ][ ][ ][ ][ ][ ]['][ ][ ][aaa][ ][ ][ ]['][ ][ ][ ][d][ ][ ]["][.][dd]
+		if (tmp->cmd[0] == '\'' || tmp->cmd[0] == '\"')
+		{
+			c = tmp->cmd[0];
+			tmp = tmp->next;
+			while (tmp->cmd[0] != c)
+			{
+				i++;
+				printf("i : [%d]\n", i);
+				tmp = tmp->next;
+			}
+		}
+		else if (tmp->cmd[0] == ' ')
+		{
+			new_tmp->next = tmp->next;
+			tmp->next = NULL;
+			tmp = new_tmp;
+		}
 		else
-			break ;
+			new_tmp = tmp;
+		tmp = tmp->next;
 	}
-	free(shell.read);
-	return (0);
 }
