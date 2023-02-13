@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CMakeReloadState">
+    <option name="reloaded" value="true" />
+  </component>
+  <component name="CMakeRunConfigurationManager">
+    <generated />
+  </component>
+  <component name="CMakeSettings">
+    <configurations>
+      <configuration PROFILE_NAME="Debug" ENABLED="true" CONFIG_NAME="Debug" />
+    </configurations>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="e90839d3-6755-4d94-8d12-06013a11364a" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Minishell.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Minishell" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.c" beforeDir="false" afterPath="$PROJECT_DIR$/main.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/minishell.h" beforeDir="false" afterPath="$PROJECT_DIR$/minishell.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parsing/parsing.c" beforeDir="false" afterPath="$PROJECT_DIR$/parsing/parsing.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils_lst.c" beforeDir="false" afterPath="$PROJECT_DIR$/utils_lst.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils_lst2.c" beforeDir="false" afterPath="$PROJECT_DIR$/utils_lst2.c" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ClangdSettings">
+    <option name="formatViaClangd" value="false" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectApplicationVersion">
+    <option name="ide" value="CLion" />
+    <option name="majorVersion" value="2022" />
+    <option name="minorVersion" value="1.1" />
+  </component>
+  <component name="ProjectId" id="2KP7AfUxE80BQpYJlyC3dLbxGEW" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="autoscrollFromSource" value="true" />
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+    <option name="showMembers" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;cf.first.check.clang-format&quot;: &quot;false&quot;,
+    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/lcamilo-/Documents/C 42/Minishell&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.IDE.editor.colors&quot;,
+    &quot;structure.view.defaults.are.configured&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RunManager">
+    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="e90839d3-6755-4d94-8d12-06013a11364a" name="Changes" comment="" />
+      <created>1673864222734</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1673864222734</updated>
+      <workItem from="1673864225948" duration="4073000" />
+      <workItem from="1673871180401" duration="3723000" />
+      <workItem from="1673894141268" duration="2431000" />
+      <workItem from="1673973115403" duration="288000" />
+      <workItem from="1674065269170" duration="6000" />
+      <workItem from="1674072921313" duration="450000" />
+      <workItem from="1674138327869" duration="2367000" />
+      <workItem from="1674146910548" duration="593000" />
+      <workItem from="1674167161390" duration="3250000" />
+      <workItem from="1674217080013" duration="277000" />
+      <workItem from="1674223248095" duration="130000" />
+      <workItem from="1674402819076" duration="525000" />
+      <workItem from="1674412689498" duration="570000" />
+      <workItem from="1674427169566" duration="645000" />
+      <workItem from="1674432550534" duration="244000" />
+      <workItem from="1674489533684" duration="2894000" />
+      <workItem from="1674674291732" duration="51000" />
+      <workItem from="1674733995689" duration="120000" />
+      <workItem from="1674836040211" duration="949000" />
+      <workItem from="1674840425924" duration="2951000" />
+      <workItem from="1674856729606" duration="541000" />
+      <workItem from="1674904013161" duration="701000" />
+      <workItem from="1674908955539" duration="2915000" />
+      <workItem from="1675183925284" duration="1585000" />
+      <workItem from="1675202533974" duration="3444000" />
+      <workItem from="1675377301367" duration="796000" />
+      <workItem from="1675432003636" duration="2462000" />
+      <workItem from="1675444414596" duration="3000" />
+      <workItem from="1675444937941" duration="137000" />
+      <workItem from="1675445087608" duration="534000" />
+      <workItem from="1675463642677" duration="3000" />
+      <workItem from="1675525590214" duration="48000" />
+      <workItem from="1675621196702" duration="1442000" />
+      <workItem from="1675864261282" duration="3658000" />
+      <workItem from="1675876938804" duration="8000" />
+      <workItem from="1675945205474" duration="8000" />
+      <workItem from="1676300441277" duration="822000" />
+      <workItem from="1676309136645" duration="4233000" />
+      <workItem from="1676323825624" duration="962000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

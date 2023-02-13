@@ -59,41 +59,30 @@ t_cmd	*parse_rd(t_shell *shell)
 
 void	parse_cmd(t_shell *shell)
 {
-	parse_quotes(shell);
+	if (parse_quotes(shell))
+		exit(0);
 }
 
-void	parse_quotes(t_shell *shell)
+void	parse_space(t_shell *shell)
 {
 	t_cmd	*tmp;
-	t_cmd	*new_tmp;
 	char	c;
-	int		b;
 
-	b = 0;
 	tmp = shell->cmd;
 	while (tmp)
 	{
-		//bug avec aaaaa bb         c "ee       '  aaa   '   d  "   .    dd
-		//Resultat attendu : [aaaaa][bb][c]["][ee][ ][ ][ ][ ][ ][ ][ ]['][ ][ ][aaa][ ][ ][ ]['][ ][ ][ ][d][ ][ ]["][.][dd]
-		if ((tmp->cmd[0] == '\'' || tmp->cmd[0] == '\"') && b == 0)
+		if (tmp->cmd[0] == '\'' || tmp->cmd[0] == '\"')
 		{
 			c = tmp->cmd[0];
-			b = 1;
+			tmp = tmp->next;
+			while (tmp && tmp->cmd[0] != c)
+				tmp = tmp->next;
+			if (tmp)
+				tmp = tmp->next;
 		}
-		else if ((tmp->cmd[0] == '\'' || tmp->cmd[0] == '\"') && b == 1 && tmp->cmd[0] == c)
-		{
-			c = tmp->cmd[0];
-			b = 0;
-		}
-		else if (tmp->cmd[0] == ' ' && b == 0 && c != tmp->cmd[0])
-		{
-			new_tmp->next = tmp->next;
-			tmp->next = NULL;
-			tmp = new_tmp;
-		}
+		else if (tmp->cmd[0] == ' ' && tmp->next->cmd[0] == ' ')
+			tmp = ft_pop(tmp);
 		else
-			new_tmp = tmp;
-		printf("b : [%d] char : [%s] c : [%c]\n", b, tmp->cmd, c);
-		tmp = tmp->next;
+			tmp = tmp->next;
 	}
 }

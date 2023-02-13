@@ -33,7 +33,7 @@ HEADERS_GNL		= libftprintfgnl/includes/get_next_line_bonus.h
 INC			= $(addprefix $HEADERS_LIB)
 
 # ------------  FLAGS  ------------------------------------------------------- #
-CFLAGS 		= -Wall -Wextra -Werror
+CFLAGS 		= -Wall -Wextra -Werror -fsanitize=address
 CC			= @cc
 RM			= rm -rf
 

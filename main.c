@@ -24,7 +24,7 @@ void	parsing(t_shell *shell)
 	shell->cmd = parse_rd(shell);
 	parse_cmd(shell);
 	execution();
-	lst_show(shell->cmd);
+	printf_list(shell->cmd);
 	free_lst(shell);
 	free(shell->read);
 }
@@ -43,6 +43,7 @@ int	main(int ac, char **av, char **env)
 	(void)av;
 	(void)env;
 	init_shell(&shell);
+	add_history("aaaaa bb         c \"ee       '  aaa   '   d  \"   .    dd");
 	while (1)
 	{
 		shell.read = readline("Minishell >");

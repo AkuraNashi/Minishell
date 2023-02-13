@@ -33,15 +33,21 @@ void	lst_add_front(t_cmd **lst, t_cmd*new)
 void	lst_add_back(t_cmd **lst, t_cmd *new)
 {
 	t_cmd	*current;
+	t_cmd	*tmp_previous;
 
 	if (*lst == NULL)
 		*lst = new;
 	else
 	{
+		tmp_previous = *lst;
 		current = *lst;
 		while (current->next)
+		{
+			tmp_previous = current;
 			current = current->next;
+		}
 		current->next = new;
+		current->prev = tmp_previous;
 	}
 }
 
@@ -52,6 +58,7 @@ t_cmd	*lst_create(char *str)
 	tmp = malloc(sizeof(t_cmd));
 	tmp->cmd = str;
 	tmp->next = NULL;
+	tmp->prev = NULL;
 	return (tmp);
 }
 
