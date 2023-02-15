@@ -63,3 +63,4 @@ pyviz.py
 push_swap_visualizer
 cmake-build-debug/
 *.txt
+.idea
