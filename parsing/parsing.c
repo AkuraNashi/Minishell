@@ -57,10 +57,56 @@ t_cmd	*parse_rd(t_shell *shell)
 	return (shell->cmd);
 }
 
+int	count_args(t_shell *shell)
+{
+	int		count;
+	t_cmd	*tmp;
+
+	tmp = shell->cmd;
+	count = 0;
+	while(tmp)
+	{
+		if (tmp->cmd[0] != ' ' && is_token(tmp->cmd[0]))
+			break	;
+		if (tmp->next->cmd[0] == ' ')
+			count++;
+		tmp = tmp->next;
+	}
+	return (count);
+}
+
+void	get_cmd(t_shell *shell)
+{
+	char	**args;
+	t_cmd	*tmp;
+	int 	i;
+
+	args = malloc(sizeof(char *) * count_args(shell));
+	if (!args)
+		printf("Erreur malloc, implementation error malloc requise...\n");
+	tmp = shell->cmd;
+	i = 0;
+	while (tmp)
+	{
+		if (tmp->cmd[0] != ' ' && is_token(tmp->cmd[0]))
+			break	;
+		if (tmp->cmd[0] != ' ')
+			args[i] = ft_strdup(tmp->cmd);
+		i++;
+		tmp = tmp->next;
+	}
+	i = 0;
+	while (args[i])
+	{
+		printf("args : [%s]\n", args[i]);
+		i++;
+	}
+}
+
 void	parse_cmd(t_shell *shell)
 {
-	if (parse_quotes(shell))
-		exit(0);
+	parse_space(shell);
+	get_cmd(shell);
 }
 
 void	parse_space(t_shell *shell)
