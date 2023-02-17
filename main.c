@@ -12,29 +12,18 @@
 
 #include "minishell.h"
 
-t_cmd	*splitting_cmd(t_shell *shell)
+void	execution()
 {
-	char 	**cmd;
-	int		i;
-
-	cmd = ft_split(shell->read, ' ');
-	i = 0;
-	while (cmd[i])
-	{
-		lst_add_back(&shell->cmd, lst_create(cmd[i]));
-		i++;
-	}
-	free(cmd);
-	return (shell->cmd);
+	printf("Execution non implemente...\n");
 }
 
 void	parsing(t_shell *shell)
 {
 	if (shell->read)
 		add_history(shell->read);
-	shell->cmd = splitting_cmd(shell);
+	parse_cmd(shell);
+	execution();
 	lst_show(shell->cmd);
-	//Execution();
 	free_lst(shell);
 	free(shell->read);
 }
@@ -56,6 +45,7 @@ int	main(int ac, char **av, char **env)
 	(void)env;
 
 	init_shell(&shell);
+	add_history("ls -la > cat.txt");
 	while (1)
 	{
 		shell.read = readline("Minishell >");

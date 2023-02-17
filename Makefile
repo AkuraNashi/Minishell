@@ -34,6 +34,7 @@ RM			= rm -rf
 
 # ------------  SOURCE FILES  ------------------------------------------------ #
 SRC 		= 	main.c							\
+				parsing/parsing.c				\
 				utils_lst.c						\
 				utils_lst2.c
 

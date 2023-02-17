@@ -44,4 +44,10 @@ int		lst_len(t_cmd *lst);
 //////////////////////////////UTILS_LST2.C//////////////////////////////////////
 void	free_lst(t_shell *shell);
 
+void	get_cmd(t_shell *shell);
+void	parse_cmd(t_shell *shell);
+void	parse_space(t_shell *shell);
+t_cmd	*parse_rd(t_shell *shell);
+int	is_token(char c);
+
 #endif
