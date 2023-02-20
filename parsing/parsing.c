@@ -75,6 +75,8 @@ void	parse_quotes(t_shell *shell)
 	tmp = shell->cmd;
 	while (tmp)
 	{
+		//bug avec aaaaa bb         c "ee       '  aaa   '   d  "   .    dd
+		//Resultat attendu : [aaaaa][bb][c]["][ee][ ][ ][ ][ ][ ][ ][ ]['][ ][ ][aaa][ ][ ][ ]['][ ][ ][ ][d][ ][ ]["][.][dd]
 		if (tmp->cmd[0] == '\'' || tmp->cmd[0] == '\"')
 		{
 			c = tmp->cmd[0];
