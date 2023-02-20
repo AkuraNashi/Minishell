@@ -68,9 +68,6 @@ void	parse_quotes(t_shell *shell)
 	t_cmd	*tmp;
 	t_cmd	*new_tmp;
 	char	c;
-	int i;
-
-	i = 0;
 
 	tmp = shell->cmd;
 	while (tmp)
@@ -82,14 +79,11 @@ void	parse_quotes(t_shell *shell)
 			c = tmp->cmd[0];
 			tmp = tmp->next;
 			while (tmp->cmd[0] != c)
-			{
-				i++;
-				printf("i : [%d]\n", i);
 				tmp = tmp->next;
-			}
 		}
 		else if (tmp->cmd[0] == ' ')
 		{
+			printf("tmp cmd : [%s]\n", tmp->cmd);
 			new_tmp->next = tmp->next;
 			tmp->next = NULL;
 			tmp = new_tmp;
