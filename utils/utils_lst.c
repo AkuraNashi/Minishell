@@ -10,8 +10,10 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minishell.h"
+#include "../minishell.h"
 
+/// Affiche la linked list
+/// \param lst Linked list a afficher
 void	lst_show(t_cmd *lst)
 {
 	while (lst)
@@ -21,6 +23,9 @@ void	lst_show(t_cmd *lst)
 	}
 }
 
+/// Ajoute au debut de la linked list
+/// \param lst Linked list qui va contenir le nouveau element
+/// \param new Linked list a ajouter
 void	lst_add_front(t_cmd **lst, t_cmd*new)
 {
 	if (lst && new)
@@ -30,6 +35,9 @@ void	lst_add_front(t_cmd **lst, t_cmd*new)
 	}
 }
 
+/// Ajoute a la fin de la linked list
+/// \param lst Linked list qui va contenir le nouveau element
+/// \param new Linked list a ajouter
 void	lst_add_back(t_cmd **lst, t_cmd *new)
 {
 	t_cmd	*current;
@@ -51,6 +59,9 @@ void	lst_add_back(t_cmd **lst, t_cmd *new)
 	}
 }
 
+/// Creer une Linked list
+/// \param str Ce que va contenir la linked list
+/// \return La linked list creer
 t_cmd	*lst_create(char *str)
 {
 	t_cmd	*tmp;
@@ -62,6 +73,9 @@ t_cmd	*lst_create(char *str)
 	return (tmp);
 }
 
+/// Calcul la length d'une linked list
+/// \param lst La linked list a calculer
+/// \return Taille de la linked list
 int	lst_len(t_cmd *lst)
 {
 	int	count;

@@ -10,8 +10,10 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minishell.h"
+#include "../minishell.h"
 
+/// Free la linked list
+/// \param shell Structure shell
 void	free_lst(t_shell *shell)
 {
 	t_cmd	*lst;
@@ -28,6 +30,8 @@ void	free_lst(t_shell *shell)
 	shell->cmd = NULL;
 }
 
+/// Affiche les char * de la linked list
+/// \param lst La linked list a afficher
 void	printf_list(t_cmd *lst)
 {
 	ft_printf("[");
@@ -39,6 +43,9 @@ void	printf_list(t_cmd *lst)
 	ft_printf("]\n");
 }
 
+/// Permet de retirer une node de la linked list
+/// \param lst Linked list dont on va enlever la node
+/// \return la nouvelle Linked list
 t_cmd	*ft_pop(t_cmd *lst)
 {
 	t_cmd	*tmp;

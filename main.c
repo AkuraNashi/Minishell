@@ -12,12 +12,9 @@
 
 #include "minishell.h"
 
-
-void	execution()
-{
-	printf("Execution non implemente...\n");
-}
-
+/// Ajoute dans l'historique la commande passé, rentre dans la fonction parsing
+/// Fais l'execution et free les linked list
+/// \param shell Structure shell
 void	parsing(t_shell *shell)
 {
 	if (shell->read)
@@ -30,6 +27,8 @@ void	parsing(t_shell *shell)
 	free(shell->read);
 }
 
+/// Initialise les variables de la structure shell
+/// \param shell Structure shell
 void	init_shell(t_shell *shell)
 {
 	shell->cmd = NULL;

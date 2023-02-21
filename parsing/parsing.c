@@ -12,25 +12,11 @@
 
 #include "../minishell.h"
 
-int	is_token(char c)
-{
-	if (c == ' ')
-		return (1);
-	else if (c == '\n')
-		return (1);
-	else if (c == '|')
-		return (1);
-	else if (c == '\'')
-		return (1);
-	else if (c == '"')
-		return (1);
-	else if (c == '>')
-		return (1);
-	else if (c == '<')
-		return (1);
-	return (0);
-}
-
+/// Recuperer le Readline du shell et le mets dans une linked list.
+/// Si un token est rencontré, on recupere ce qu'il y avait avant
+/// et on fait une linked liste avec
+/// \param shell Structure shell
+/// \return Retourne une linked list
 t_cmd	*parse_rd(t_shell *shell)
 {
 	int	i;
@@ -57,29 +43,13 @@ t_cmd	*parse_rd(t_shell *shell)
 	return (shell->cmd);
 }
 
-int	count_args(t_shell *shell)
-{
-	int		count;
-	t_cmd	*tmp;
-
-	tmp = shell->cmd;
-	count = 0;
-	while(tmp)
-	{
-		if (tmp->cmd[0] != ' ' && is_token(tmp->cmd[0]))
-			break	;
-		if (tmp->next->cmd[0] == ' ')
-			count++;
-		tmp = tmp->next;
-	}
-	return (count);
-}
-
+/// Permet de creer une linked list contenant les commandes a executer
+/// \param shell Structure shell
 void	get_cmd(t_shell *shell)
 {
 	char	**args;
 	t_cmd	*tmp;
-	int 	i;
+	int		i;
 
 	args = malloc(sizeof(char *) * count_args(shell));
 	if (!args)
@@ -89,7 +59,7 @@ void	get_cmd(t_shell *shell)
 	while (tmp)
 	{
 		if (tmp->cmd[0] != ' ' && is_token(tmp->cmd[0]))
-			break	;
+			break ;
 		if (tmp->cmd[0] != ' ')
 			args[i] = ft_strdup(tmp->cmd);
 		i++;
@@ -103,12 +73,17 @@ void	get_cmd(t_shell *shell)
 	}
 }
 
+/// Execute toutes les commandes a faire pour le parsing
+/// \param shell Structure shell
 void	parse_cmd(t_shell *shell)
 {
 	parse_space(shell);
-//	get_cmd(shell);
+	get_cmd(shell);
 }
 
+/// Enleve tout les espaces inutiles, ne garde qu'un seul espace
+/// afin de pouvoir parser les commandes futures
+/// \param shell Structure shell
 void	parse_space(t_shell *shell)
 {
 	t_cmd	*tmp;
