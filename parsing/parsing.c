@@ -106,7 +106,7 @@ void	get_cmd(t_shell *shell)
 void	parse_cmd(t_shell *shell)
 {
 	parse_space(shell);
-	get_cmd(shell);
+//	get_cmd(shell);
 }
 
 void	parse_space(t_shell *shell)

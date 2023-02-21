@@ -12,15 +12,17 @@
 
 #include "minishell.h"
 
-void	execution(void)
+
+void	execution()
 {
-	printf("Execution non implemente\n");
+	printf("Execution non implemente...\n");
 }
 
 void	parsing(t_shell *shell)
 {
 	if (shell->read)
 		add_history(shell->read);
+	shell->cmd = parse_rd(shell);
 	parse_cmd(shell);
 	execution();
 	lst_show(shell->cmd);
