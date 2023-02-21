@@ -28,6 +28,17 @@ void	free_lst(t_shell *shell)
 	shell->cmd = NULL;
 }
 
+void	printf_list(t_cmd *lst)
+{
+	ft_printf("[");
+	while (lst)
+	{
+		ft_printf("%s", lst->cmd);
+		lst = lst->next;
+	}
+	ft_printf("]\n");
+}
+
 t_cmd	*ft_pop(t_cmd *lst)
 {
 	t_cmd	*tmp;

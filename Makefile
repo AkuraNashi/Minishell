@@ -23,12 +23,17 @@ COLOUR_CYAN=\033[0;36m
 NAME		= Minishell
 
 # ------------  DIRECTORIES  ------------------------------------------------- #
-LIB			= libftprintfgnl
-SRC_PATH	= ./
-HEADERS		= incl
+LIB				= libftprintfgnl
+SRC_PATH		= ./
+HEADERS			= includes
+HEADERS_LIB		= libftprintfgnl/includes/libft.h
+HEADERS_PRINTF	= libftprintfgnl/includes/ft_printf.h
+HEADERS_GNL		= libftprintfgnl/includes/get_next_line_bonus.h
+
+INC			= $(addprefix $HEADERS_LIB)
 
 # ------------  FLAGS  ------------------------------------------------------- #
-CFLAGS 		= -Wall -Wextra -Werror
+CFLAGS 		= -Wall -Wextra -Werror -fsanitize=address
 CC			= @cc
 RM			= rm -rf
 
@@ -51,7 +56,7 @@ lib:
 			@echo "$(COLOUR_GREEN)"cp ./libftprintfgnl/libft.a libft.a
 			@echo "$(COLOUR_END)"
 
-$(NAME): $(OBJS)
+$(NAME): $(OBJS) ${HEADERS_LIB} ${HEADERS_GNL} ${HEADERS_PRINTF}
 			@echo "$(COLOUR_CYAN)Compile..."
 			$(CC) $(CFLAGS)  -I libftprintfgnl/includes -o $@ $(OBJS)  -L libftprintfgnl -lreadline -lft
 			@echo "$(COLOUR_RED)Minishell ready. $(COLOUR_END)"
