@@ -49,5 +49,5 @@ void	parse_cmd(t_shell *shell);
 void	parse_space(t_shell *shell);
 t_cmd	*parse_rd(t_shell *shell);
 int	is_token(char c);
-
+t_cmd	*ft_pop(t_cmd *lst);
 #endif
