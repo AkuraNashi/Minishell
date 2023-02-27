@@ -48,6 +48,7 @@ void	remove_quotes(t_shell *shell)
 			str = malloc(sizeof(char *) * (len_cmd(shell, c) + 1));
 			tmp = tmp->next;
 			remove_quotes_utils(tmp, str, c);
+			printf("str : [%s]\n", str);
 		}
 		tmp = tmp->next;
 	}

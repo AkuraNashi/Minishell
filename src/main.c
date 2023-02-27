@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minishell.h"
+#include "../minishell.h"
 
 /// Ajoute dans l'historique la commande passé, rentre dans la fonction parsing
 /// Fais l'execution et free les linked list

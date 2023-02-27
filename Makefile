@@ -24,7 +24,7 @@ NAME		= Minishell
 
 # ------------  DIRECTORIES  ------------------------------------------------- #
 LIB				= libftprintfgnl
-SRC_PATH		= ./
+SRC_PATH		= src/
 HEADERS			= includes
 HEADERS_LIB		= libftprintfgnl/includes/libft.h
 HEADERS_PRINTF	= libftprintfgnl/includes/ft_printf.h
@@ -47,8 +47,10 @@ SRC 		= 	main.c							\
 				utils/utils.c
 
 # ------------  FILEPATHS  --------------------------------------------------- #
-SRCS 		= $(addprefix $(SRC_PATH),$(SRC))
-OBJS		= ${SRCS:.c=.o}
+OBJS				= ${SRC:.c=.o}
+OBJS_DIR			= objs
+DIRS				= objs objs/utils objs/parsing objs/execution
+_OBJS				= $(addprefix $(OBJS_DIR)/, $(OBJS))
 
 all: lib $(NAME)
 
@@ -59,16 +61,19 @@ lib:
 			@echo "$(COLOUR_GREEN)"cp ./libftprintfgnl/libft.a libft.a
 			@echo "$(COLOUR_END)"
 
-$(NAME): $(OBJS) ${HEADERS_LIB} ${HEADERS_GNL} ${HEADERS_PRINTF}
+$(NAME): $(_OBJS) ${HEADERS_LIB} ${HEADERS_GNL} ${HEADERS_PRINTF}
 			@echo "$(COLOUR_CYAN)Compile..."
-			$(CC) $(CFLAGS)  -I libftprintfgnl/includes -o $@ $(OBJS)  -L libftprintfgnl -lreadline -lft
+			$(CC) $(CFLAGS)  -I libftprintfgnl/includes -o $@ $(_OBJS)  -L libftprintfgnl -lreadline -lft
 			@echo "$(COLOUR_RED)Minishell ready. $(COLOUR_END)"
 
-%.o: %.c
+$(OBJS_DIR)/%.o: $(SRC_PATH)/%.c
+
+		@mkdir -p $(DIRS)
 		${CC} $(CFLAGS) -I$(HEADERS) -I$(LIB) -c $< -o $@ -g3
 
 clean:
 			$(RM) ${OBJS}
+			rm -rf $(OBJS_DIR)
 			make fclean -C $(LIB)
 
 fclean:		clean
