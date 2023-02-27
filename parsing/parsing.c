@@ -43,6 +43,7 @@ t_cmd	*parse_rd(t_shell *shell)
 	return (shell->cmd);
 }
 
+///WIP
 /// Permet de creer une linked list contenant les commandes a executer
 /// \param shell Structure shell
 void	get_cmd(t_shell *shell)
@@ -51,7 +52,7 @@ void	get_cmd(t_shell *shell)
 	t_cmd	*tmp;
 	int		i;
 
-	args = malloc(sizeof(char *) * count_args(shell));
+	args = malloc(sizeof(char *) * (count_args(shell) + 1));
 	if (!args)
 		printf("Erreur malloc, implementation error malloc requise...\n");
 	tmp = shell->cmd;
@@ -61,16 +62,10 @@ void	get_cmd(t_shell *shell)
 		if (tmp->cmd[0] != ' ' && is_token(tmp->cmd[0]))
 			break ;
 		if (tmp->cmd[0] != ' ')
-			args[i] = ft_strdup(tmp->cmd);
-		i++;
+			args[i++] = tmp->cmd;
 		tmp = tmp->next;
 	}
-	i = 0;
-	while (args[i])
-	{
-		printf("args : [%s]\n", args[i]);
-		i++;
-	}
+	args[i] = NULL;
 }
 
 /// Execute toutes les commandes a faire pour le parsing
@@ -78,6 +73,7 @@ void	get_cmd(t_shell *shell)
 void	parse_cmd(t_shell *shell)
 {
 	parse_space(shell);
+	remove_quotes(shell);
 	get_cmd(shell);
 }
 
@@ -101,7 +97,7 @@ void	parse_space(t_shell *shell)
 			if (tmp)
 				tmp = tmp->next;
 		}
-		else if (tmp->cmd[0] == ' ' && tmp->next->cmd[0] == ' ')
+		else if (tmp->cmd[0] == ' ')
 			tmp = ft_pop(tmp);
 		else
 			tmp = tmp->next;

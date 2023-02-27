@@ -63,6 +63,7 @@ t_cmd	*lst_create(char *str);
 void	printf_list(t_cmd *lst);
 void	free_lst(t_shell *shell);
 t_cmd	*ft_pop(t_cmd *lst);
+int	len_cmd(t_shell *shell, char c);
 
 ////////////////////////////////UTILS.C/////////////////////////////////////////
 int		is_token(char c);
@@ -78,4 +79,8 @@ t_cmd	*parse_rd(t_shell *shell);
 void	get_cmd(t_shell *shell);
 void	parse_cmd(t_shell *shell);
 void	parse_space(t_shell *shell);
+
+///////////////////////////////QUOTES.C/////////////////////////////////////////
+void	remove_quotes(t_shell *shell);
+
 #endif

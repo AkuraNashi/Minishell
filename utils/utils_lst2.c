@@ -61,3 +61,30 @@ t_cmd	*ft_pop(t_cmd *lst)
 	}
 	return (tmp);
 }
+
+/// Permet de calculer la longueur total d'une string jusqu'a retrouver
+///le char c
+/// \param shell Structure Shell
+/// \param c le char c a retrouver
+/// \return la longueur total des strings de la Linked list
+int	len_cmd(t_shell *shell, char c)
+{
+	t_cmd	*tmp;
+	int		i;
+	int		b;
+
+	i = 0;
+	b = 0;
+	tmp = shell->cmd;
+	while (tmp)
+	{
+		if (tmp->cmd[0] == c && b)
+			break ;
+		if (tmp->cmd[0] == c)
+			b = 1;
+		if (b)
+			i += ft_strlen(tmp->cmd);
+		tmp = tmp->next;
+	}
+	return (i);
+}

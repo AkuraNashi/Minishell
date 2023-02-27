@@ -43,12 +43,12 @@ int	count_args(t_shell *shell)
 	t_cmd	*tmp;
 
 	tmp = shell->cmd;
-	count = 0;
+	count = 1;
 	while (tmp)
 	{
-		if (tmp->cmd[0] != ' ' && is_token(tmp->cmd[0]))
+		if (is_token(tmp->cmd[0]))
 			break ;
-		if (tmp->next->cmd[0] == ' ')
+		if (tmp->next && !is_token(tmp->next->cmd[0]))
 			count++;
 		tmp = tmp->next;
 	}

@@ -43,7 +43,8 @@ int	main(int ac, char **av, char **env)
 	(void)av;
 	(void)env;
 	init_shell(&shell);
-	add_history("ls -la > cat.txt");
+	add_history("cat | cat | cat | ls");
+	add_history("echo \"  salut  \"");
 	while (1)
 	{
 		shell.read = readline("Minishell >");
