@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../minishell.h"
+#include "minishell.h"
 
 /// Check is le character est un token
 /// \param c character a checker
@@ -53,4 +53,27 @@ int	count_args(t_shell *shell)
 		tmp = tmp->next;
 	}
 	return (count);
+}
+
+int check_quotes(t_shell *shell)
+{
+	int countd;
+	int countq;
+	t_cmd *tmp;
+
+	countd = 0;
+	countq = 0;
+	tmp = shell->cmd;
+	while (tmp)
+	{
+		if (tmp->cmd[0] == '\"')
+			countd++;
+		if (tmp->cmd[0] == '\'')
+			countq++;
+		tmp = tmp->next;
+	}
+	if (countd % 2 == 0 && countq % 2 == 0)
+		return (1);
+	else
+		return (0);
 }

@@ -10,12 +10,12 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../minishell.h"
+#include "minishell.h"
 
 void	remove_quotes_utils(t_cmd *tmp, char *str, char c)
 {
-	int j;
-	int i;
+	int	j;
+	int	i;
 
 	i = 0;
 	while (tmp->cmd[0] != c)
@@ -46,10 +46,15 @@ void	remove_quotes(t_shell *shell)
 		{
 			c = tmp->cmd[0];
 			str = malloc(sizeof(char *) * (len_cmd(shell, c) + 1));
-			tmp = tmp->next;
+			if (tmp->prev != NULL)
+				tmp = ft_pop(tmp);
 			remove_quotes_utils(tmp, str, c);
-			printf("str : [%s]\n", str);
+			while (tmp->cmd[0] != c)
+				tmp = ft_pop(tmp);
+			free(tmp->cmd);
+			tmp->cmd = str;
 		}
-		tmp = tmp->next;
+		if (tmp->next)
+			tmp = tmp->next;
 	}
 }

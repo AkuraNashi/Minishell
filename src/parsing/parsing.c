@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../minishell.h"
+#include "minishell.h"
 
 /// Recuperer le Readline du shell et le mets dans une linked list.
 /// Si un token est rencontré, on recupere ce qu'il y avait avant
@@ -68,13 +68,20 @@ void	get_cmd(t_shell *shell)
 	args[i] = NULL;
 }
 
+
+
 /// Execute toutes les commandes a faire pour le parsing
 /// \param shell Structure shell
 void	parse_cmd(t_shell *shell)
 {
+	if (!check_quotes(shell))
+	{
+		printf("Nb de quotes pas bon\n");
+		exit(0);
+	}
 	parse_space(shell);
 	remove_quotes(shell);
-	get_cmd(shell);
+//	get_cmd(shell);
 }
 
 /// Enleve tout les espaces inutiles, ne garde qu'un seul espace

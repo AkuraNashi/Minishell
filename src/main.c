@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../minishell.h"
+#include "minishell.h"
 
 /// Ajoute dans l'historique la commande passé, rentre dans la fonction parsing
 /// Fais l'execution et free les linked list
@@ -50,8 +50,6 @@ int	main(int ac, char **av, char **env)
 		shell.read = readline("Minishell >");
 		if (shell.read)
 			parsing(&shell);
-		else
-			break ;
 	}
 	free(shell.read);
 	return (0);

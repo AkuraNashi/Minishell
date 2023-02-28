@@ -13,7 +13,7 @@
 #ifndef MINISHELL_H
 # define MINISHELL_H
 
-# include "./libftprintfgnl/includes/libft.h"
+# include "libft.h"
 # include <unistd.h>
 # include <stdlib.h>
 # include <stdio.h>
@@ -63,11 +63,12 @@ t_cmd	*lst_create(char *str);
 void	printf_list(t_cmd *lst);
 void	free_lst(t_shell *shell);
 t_cmd	*ft_pop(t_cmd *lst);
-int	len_cmd(t_shell *shell, char c);
+int		len_cmd(t_shell *shell, char c);
 
 ////////////////////////////////UTILS.C/////////////////////////////////////////
 int		is_token(char c);
 int		count_args(t_shell *shell);
+int		check_quotes(t_shell *shell);
 
 ////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////Parsing////////////////////////////////////////////
@@ -82,5 +83,6 @@ void	parse_space(t_shell *shell);
 
 ///////////////////////////////QUOTES.C/////////////////////////////////////////
 void	remove_quotes(t_shell *shell);
+void	remove_quotes_utils(t_cmd *tmp, char *str, char c);
 
 #endif

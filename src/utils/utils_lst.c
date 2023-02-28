@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../minishell.h"
+#include "minishell.h"
 
 /// Affiche la linked list
 /// \param lst Linked list a afficher
@@ -67,6 +67,8 @@ t_cmd	*lst_create(char *str)
 	t_cmd	*tmp;
 
 	tmp = malloc(sizeof(t_cmd));
+	if (!tmp)
+		return (NULL);
 	tmp->cmd = str;
 	tmp->next = NULL;
 	tmp->prev = NULL;

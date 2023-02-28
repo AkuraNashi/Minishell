@@ -26,14 +26,12 @@ NAME		= Minishell
 LIB				= libftprintfgnl
 SRC_PATH		= src/
 HEADERS			= includes
-HEADERS_LIB		= libftprintfgnl/includes/libft.h
-HEADERS_PRINTF	= libftprintfgnl/includes/ft_printf.h
-HEADERS_GNL		= libftprintfgnl/includes/get_next_line_bonus.h
+HEADERS_LIB		= libftprintfgnl/includes
 
 INC			= $(addprefix $HEADERS_LIB)
 
 # ------------  FLAGS  ------------------------------------------------------- #
-CFLAGS 		= -Wall -Wextra -Werror -fsanitize=address
+CFLAGS 		= -Wall -Wextra -Werror -fsanitize=address -I $(HEADERS) -I $(HEADERS_LIB)
 CC			= @cc
 RM			= rm -rf
 
@@ -58,18 +56,16 @@ lib:
 			@echo "$(COLOUR_CYAN)Compilation libft..."
 			make -C $(LIB)
 			@echo "$(COLOUR_YELLOW)Deplacement du libft.a $(COLOUR_END)"
-			@echo "$(COLOUR_GREEN)"cp ./libftprintfgnl/libft.a libft.a
-			@echo "$(COLOUR_END)"
+			@cp ./libftprintfgnl/libft.a libft.a
 
-$(NAME): $(_OBJS) ${HEADERS_LIB} ${HEADERS_GNL} ${HEADERS_PRINTF}
+$(NAME): $(_OBJS)
 			@echo "$(COLOUR_CYAN)Compile..."
-			$(CC) $(CFLAGS)  -I libftprintfgnl/includes -o $@ $(_OBJS)  -L libftprintfgnl -lreadline -lft
+			$(CC) $(_OBJS) libft.a $(CFLAGS) -o $@ -L libftprintfgnl -lreadline -lft
 			@echo "$(COLOUR_RED)Minishell ready. $(COLOUR_END)"
 
 $(OBJS_DIR)/%.o: $(SRC_PATH)/%.c
-
 		@mkdir -p $(DIRS)
-		${CC} $(CFLAGS) -I$(HEADERS) -I$(LIB) -c $< -o $@ -g3
+		${CC} $(CFLAGS) -c $< -o $@ -g3
 
 clean:
 			$(RM) ${OBJS}
