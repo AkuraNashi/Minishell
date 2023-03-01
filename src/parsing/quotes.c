@@ -12,11 +12,13 @@
 
 #include "minishell.h"
 
-void	remove_quotes_utils(t_cmd *tmp, char *str, char c)
+char	*remove_quotes_utils(t_shell *shell, t_cmd *tmp, char c)
 {
-	int	j;
-	int	i;
+	int		j;
+	int		i;
+	char	*str;
 
+	str = malloc(sizeof(char *) * (len_cmd(shell, c) + 1));
 	i = 0;
 	while (tmp->cmd[0] != c)
 	{
@@ -31,6 +33,7 @@ void	remove_quotes_utils(t_cmd *tmp, char *str, char c)
 		tmp = tmp->next;
 	}
 	str[i] = '\0';
+	return (str);
 }
 
 void	remove_quotes(t_shell *shell)
@@ -45,10 +48,14 @@ void	remove_quotes(t_shell *shell)
 		if (tmp->cmd[0] == '\"' || tmp->cmd[0] == '\'')
 		{
 			c = tmp->cmd[0];
-			str = malloc(sizeof(char *) * (len_cmd(shell, c) + 1));
-			if (tmp->prev != NULL)
+			if (tmp != shell->cmd)
 				tmp = ft_pop(tmp);
-			remove_quotes_utils(tmp, str, c);
+			else
+			{
+				tmp = tmp->next;
+				//Add PopHead();
+			}
+			str = remove_quotes_utils(shell, tmp, c);
 			while (tmp->cmd[0] != c)
 				tmp = ft_pop(tmp);
 			free(tmp->cmd);

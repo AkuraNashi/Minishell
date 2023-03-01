@@ -68,8 +68,6 @@ void	get_cmd(t_shell *shell)
 	args[i] = NULL;
 }
 
-
-
 /// Execute toutes les commandes a faire pour le parsing
 /// \param shell Structure shell
 void	parse_cmd(t_shell *shell)

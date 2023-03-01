@@ -83,6 +83,6 @@ void	parse_space(t_shell *shell);
 
 ///////////////////////////////QUOTES.C/////////////////////////////////////////
 void	remove_quotes(t_shell *shell);
-void	remove_quotes_utils(t_cmd *tmp, char *str, char c);
+char	*remove_quotes_utils(t_shell *shell, t_cmd *tmp, char c);
 
 #endif
