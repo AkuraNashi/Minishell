@@ -36,6 +36,12 @@ char	*remove_quotes_utils(t_shell *shell, t_cmd *tmp, char c)
 	return (str);
 }
 
+char	*replace_str(char *replace, char *str)
+{
+	free(replace);
+	return (str);
+}
+
 void	remove_quotes(t_shell *shell)
 {
 	t_cmd	*tmp;
@@ -58,8 +64,7 @@ void	remove_quotes(t_shell *shell)
 			str = remove_quotes_utils(shell, tmp, c);
 			while (tmp->cmd[0] != c)
 				tmp = ft_pop(tmp);
-			free(tmp->cmd);
-			tmp->cmd = str;
+			tmp->cmd = replace_str(tmp->cmd, str);
 		}
 		if (tmp->next)
 			tmp = tmp->next;

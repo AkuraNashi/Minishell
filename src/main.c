@@ -49,7 +49,7 @@ int	main(int ac, char **av, char **env)
 	{
 		shell.read = readline("Minishell >");
 		if (shell.read)
-			parsing(&shell);
+			parsing(&shell);+
 	}
 	free(shell.read);
 	return (0);
