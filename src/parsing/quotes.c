@@ -36,10 +36,10 @@ char	*remove_quotes_utils(t_shell *shell, t_cmd *tmp, char c)
 	return (str);
 }
 
-char	*replace_str(char *replace, char *str)
+void	replace_str(char **replace, char *str)
 {
-	free(replace);
-	return (str);
+	free(*replace);
+	*replace = str;
 }
 
 void	remove_quotes(t_shell *shell)
@@ -57,14 +57,11 @@ void	remove_quotes(t_shell *shell)
 			if (tmp != shell->cmd)
 				tmp = ft_pop(tmp);
 			else
-			{
-				tmp = tmp->next;
-				//Add PopHead();
-			}
+				tmp = ft_pop_head(shell->cmd);
 			str = remove_quotes_utils(shell, tmp, c);
 			while (tmp->cmd[0] != c)
 				tmp = ft_pop(tmp);
-			tmp->cmd = replace_str(tmp->cmd, str);
+			replace_str(&tmp->cmd, str);
 		}
 		if (tmp->next)
 			tmp = tmp->next;

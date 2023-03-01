@@ -62,6 +62,21 @@ t_cmd	*ft_pop(t_cmd *lst)
 	return (tmp);
 }
 
+t_cmd	*ft_pop_head(t_cmd *lst)
+{
+	t_cmd *tmp;
+
+	tmp = NULL;
+	lst->next->prev = NULL;
+	tmp = lst->next;
+	free(lst->cmd);
+	free(lst);
+	printf("pop head \n");
+	lst_show(tmp);
+	return (tmp);
+}
+
+
 /// Permet de calculer la longueur total d'une string jusqu'a retrouver
 ///le char c
 /// \param shell Structure Shell
