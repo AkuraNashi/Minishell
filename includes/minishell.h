@@ -62,9 +62,8 @@ t_cmd	*lst_create(char *str);
 //////////////////////////////UTILS_LST2.C//////////////////////////////////////
 void	printf_list(t_cmd *lst);
 void	free_lst(t_shell *shell);
-t_cmd	*ft_pop(t_cmd *lst);
 int		len_cmd(t_shell *shell, char c);
-t_cmd	*ft_pop_head(t_cmd *lst);
+t_cmd	*ft_pop(t_cmd *lst, t_shell *shell);
 
 ////////////////////////////////UTILS.C/////////////////////////////////////////
 int		is_token(char c);

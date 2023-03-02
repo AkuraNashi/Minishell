@@ -27,7 +27,9 @@
       <change beforePath="$PROJECT_DIR$/Minishell" beforeDir="false" afterPath="$PROJECT_DIR$/Minishell" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/includes/minishell.h" beforeDir="false" afterPath="$PROJECT_DIR$/includes/minishell.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/parsing/parsing.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/parsing/parsing.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/parsing/quotes.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/parsing/quotes.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/utils_lst.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/utils_lst.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/utils/utils_lst2.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/utils_lst2.c" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -104,11 +106,6 @@
         <option name="CLION.COMPOUND.BUILD" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
-      <method v="2">
-        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
-      </method>
-    </configuration>
     <list>
       <item itemvalue="Makefile Application.all" />
       <item itemvalue="Makefile Application.fclean" />
@@ -127,7 +124,10 @@
       <option name="presentableId" value="Default" />
       <updated>1677681612186</updated>
       <workItem from="1677681613400" duration="3095000" />
-      <workItem from="1677703066856" duration="1049000" />
+      <workItem from="1677703066856" duration="1196000" />
+      <workItem from="1677760653640" duration="485000" />
+      <workItem from="1677766517955" duration="2018000" />
+      <workItem from="1677773960149" duration="3000" />
     </task>
     <servers />
   </component>

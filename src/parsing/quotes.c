@@ -55,12 +55,12 @@ void	remove_quotes(t_shell *shell)
 		{
 			c = tmp->cmd[0];
 			if (tmp != shell->cmd)
-				tmp = ft_pop(tmp);
+				tmp = ft_pop(tmp, shell);
 			else
-				tmp = ft_pop_head(shell->cmd);
+				tmp = ft_pop(tmp, shell);
 			str = remove_quotes_utils(shell, tmp, c);
 			while (tmp->cmd[0] != c)
-				tmp = ft_pop(tmp);
+				tmp = ft_pop(tmp, shell);
 			replace_str(&tmp->cmd, str);
 		}
 		if (tmp->next)

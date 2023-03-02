@@ -102,8 +102,8 @@ void	parse_space(t_shell *shell)
 			if (tmp)
 				tmp = tmp->next;
 		}
-		else if (tmp->cmd[0] == ' ')
-			tmp = ft_pop(tmp);
+		else if (tmp->cmd[0] == ' ' && tmp->next->cmd[0] == ' ')
+			tmp = ft_pop(tmp, shell);
 		else
 			tmp = tmp->next;
 	}

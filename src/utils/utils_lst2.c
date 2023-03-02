@@ -46,36 +46,31 @@ void	printf_list(t_cmd *lst)
 /// Permet de retirer une node de la linked list
 /// \param lst Linked list dont on va enlever la node
 /// \return la nouvelle Linked list
-t_cmd	*ft_pop(t_cmd *lst)
+t_cmd	*ft_pop(t_cmd *lst, t_shell *shell)
 {
 	t_cmd	*tmp;
 
 	tmp = NULL;
-	if (lst)
+	if (lst && lst == shell->cmd)
 	{
-		lst->prev->next = lst->next;
-		lst->next->prev = lst->prev;
+		shell->cmd->next->prev = NULL;
+		tmp = shell->cmd->next;
+		free(shell->cmd->cmd);
+		free(shell->cmd);
+		shell->cmd = tmp;
+	}
+	else if (lst)
+	{
+		if (lst->prev)
+			lst->prev->next = lst->next;
+		if (lst->next)
+			lst->next->prev = lst->prev;
 		tmp = lst->next;
 		free(lst->cmd);
 		free(lst);
 	}
 	return (tmp);
 }
-
-t_cmd	*ft_pop_head(t_cmd *lst)
-{
-	t_cmd *tmp;
-
-	tmp = NULL;
-	lst->next->prev = NULL;
-	tmp = lst->next;
-	free(lst->cmd);
-	free(lst);
-	printf("pop head \n");
-	lst_show(tmp);
-	return (tmp);
-}
-
 
 /// Permet de calculer la longueur total d'une string jusqu'a retrouver
 ///le char c

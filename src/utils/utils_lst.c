@@ -18,7 +18,7 @@ void	lst_show(t_cmd *lst)
 {
 	while (lst)
 	{
-		ft_printf("Liste : [%s]\n", lst->cmd);
+		printf("Liste : [%s]\n", lst->cmd);
 		lst = lst->next;
 	}
 }

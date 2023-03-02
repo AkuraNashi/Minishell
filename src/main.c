@@ -45,6 +45,8 @@ int	main(int ac, char **av, char **env)
 	init_shell(&shell);
 	add_history("cat | cat | cat | ls");
 	add_history("echo \"  salut  \"");
+	add_history("\" \"");
+	add_history("\"\"");
 	while (1)
 	{
 		shell.read = readline("Minishell >");
