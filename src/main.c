@@ -51,7 +51,7 @@ int	main(int ac, char **av, char **env)
 	{
 		shell.read = readline("Minishell >");
 		if (!ft_strncmp(shell.read, "exit", 4))
-			break;
+			break ;
 		else if (shell.read)
 			parsing(&shell);
 	}

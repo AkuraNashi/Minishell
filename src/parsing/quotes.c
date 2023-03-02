@@ -54,10 +54,7 @@ void	remove_quotes(t_shell *shell)
 		if (tmp->cmd[0] == '\"' || tmp->cmd[0] == '\'')
 		{
 			c = tmp->cmd[0];
-			if (tmp != shell->cmd)
-				tmp = ft_pop(tmp, shell);
-			else
-				tmp = ft_pop(tmp, shell);
+			tmp = ft_pop(tmp, shell);
 			str = remove_quotes_utils(shell, tmp, c);
 			while (tmp->cmd[0] != c)
 				tmp = ft_pop(tmp, shell);

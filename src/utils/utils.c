@@ -55,11 +55,11 @@ int	count_args(t_shell *shell)
 	return (count);
 }
 
-int check_quotes(t_shell *shell)
+int	check_quotes(t_shell *shell)
 {
-	int countd;
-	int countq;
-	t_cmd *tmp;
+	int		countd;
+	int		countq;
+	t_cmd	*tmp;
 
 	countd = 0;
 	countq = 0;

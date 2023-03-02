@@ -3,6 +3,9 @@
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
+  <component name="CMakePresetLoader"><![CDATA[{
+  "useNewFormat": true
+}]]></component>
   <component name="CMakeReloadState">
     <option name="reloaded" value="true" />
   </component>
@@ -22,15 +25,12 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4e1b342e-d3b4-49ea-8cfb-6c883ef9d016" name="Changes" comment="">
+    <list default="true" id="3c98f927-30bf-468f-891f-49145daf64b1" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Minishell" beforeDir="false" afterPath="$PROJECT_DIR$/Minishell" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/minishell.h" beforeDir="false" afterPath="$PROJECT_DIR$/includes/minishell.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/parsing/parsing.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/parsing/parsing.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/parsing/quotes.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/parsing/quotes.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/utils_lst.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/utils_lst.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/utils_lst2.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/utils_lst2.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/utils.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/utils.c" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,6 +48,33 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="MakefileLocalSettings">
+    <option name="availableProjects">
+      <map>
+        <entry>
+          <key>
+            <ExternalProjectPojo>
+              <option name="name" value="minishell" />
+              <option name="path" value="$PROJECT_DIR$" />
+            </ExternalProjectPojo>
+          </key>
+          <value>
+            <list>
+              <ExternalProjectPojo>
+                <option name="name" value="minishell" />
+                <option name="path" value="$PROJECT_DIR$" />
+              </ExternalProjectPojo>
+            </list>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="projectSyncType">
+      <map>
+        <entry key="$PROJECT_DIR$" value="RE_IMPORT" />
+      </map>
+    </option>
+  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -57,11 +84,10 @@
     <option name="minorVersion" value="1.1" />
   </component>
   <component name="ProjectId" id="2MPubn4MlAxupbE84nTJl0Vqgr8" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
-    <option name="autoscrollFromSource" value="true" />
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
-    <option name="showMembers" value="true" />
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
@@ -118,20 +144,28 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="4e1b342e-d3b4-49ea-8cfb-6c883ef9d016" name="Changes" comment="" />
-      <created>1677681612186</created>
+      <changelist id="3c98f927-30bf-468f-891f-49145daf64b1" name="Changes" comment="" />
+      <created>1677509467578</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1677681612186</updated>
-      <workItem from="1677681613400" duration="3095000" />
-      <workItem from="1677703066856" duration="1196000" />
-      <workItem from="1677760653640" duration="485000" />
-      <workItem from="1677766517955" duration="2018000" />
-      <workItem from="1677773960149" duration="3000" />
+      <updated>1677509467578</updated>
+      <workItem from="1677509478066" duration="16601000" />
+      <workItem from="1677760016054" duration="1136000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>
