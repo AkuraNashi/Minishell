@@ -79,6 +79,8 @@ void	parse_cmd(t_shell *shell)
 	}
 	parse_space(shell);
 	remove_quotes(shell);
+	parse_dollars(shell);
+	parse_dollars(shell);
 //	get_cmd(shell);
 }
 

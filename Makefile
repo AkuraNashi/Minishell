@@ -40,6 +40,7 @@ SRC 		= 	main.c							\
 				execution/execution.c			\
 				parsing/parsing.c				\
 				parsing/quotes.c				\
+				parsing/dollars.c				\
 				utils/utils_lst.c				\
 				utils/utils_lst2.c				\
 				utils/utils.c
