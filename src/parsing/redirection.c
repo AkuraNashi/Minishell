@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   dollars.c                                          :+:      :+:    :+:   */
+/*   redirection.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lcamilo- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,39 +12,16 @@
 
 #include "minishell.h"
 
-char	*extract_value(char *cmd, int i)
+void set_redirection(t_shell *shell)
 {
-	char	*str;
-	char	*env;
-	char	*tmp;
-
-	str = ft_substr(cmd, i + 1, ft_strlen(cmd) - i);
-	env = getenv(str);
-	free(str);
-	tmp = ft_substr(cmd, 0, i);
-	str = ft_strjoin(tmp, env);
-	free(cmd);
-	free(tmp);
-	return (str);
-}
-
-void	parse_dollars(t_shell *shell)
-{
-	t_cmd	*tmp;
-	int		i;
+	t_cmd *tmp;
 
 	tmp = shell->cmd;
 	while (tmp)
 	{
-		i = 0;
-		while (tmp->cmd[i])
+		if (tmp->cmd[0] != ' ' && tmp->cmd[0] != '|' && is_token(tmp->cmd[0]))
 		{
-			if (tmp->cmd[i] == '$')
-			{
-				tmp->cmd = extract_value(tmp->cmd, i);
-				break ;
-			}
-			i++;
+			printf("redirection !\n");
 		}
 		tmp = tmp->next;
 	}

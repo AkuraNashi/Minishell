@@ -31,7 +31,7 @@ HEADERS_LIB		= libftprintfgnl/includes
 INC			= $(addprefix $HEADERS_LIB)
 
 # ------------  FLAGS  ------------------------------------------------------- #
-CFLAGS 		= -Wall -Wextra -Werror -fsanitize=address -I $(HEADERS) -I $(HEADERS_LIB)
+CFLAGS 		= -Wall -Wextra -Werror -I $(HEADERS) -I $(HEADERS_LIB)
 CC			= @cc
 RM			= rm -rf
 
@@ -41,6 +41,7 @@ SRC 		= 	main.c							\
 				parsing/parsing.c				\
 				parsing/quotes.c				\
 				parsing/dollars.c				\
+				parsing/redirection.c			\
 				utils/utils_lst.c				\
 				utils/utils_lst2.c				\
 				utils/utils.c

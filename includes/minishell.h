@@ -87,5 +87,9 @@ char	*remove_quotes_utils(t_shell *shell, t_cmd *tmp, char c);
 
 ///////////////////////////////DOLLARS.C////////////////////////////////////////
 void	parse_dollars(t_shell *shell);
+char	*extract_value(char *cmd, int i);
+
+/////////////////////////////REDIRECTION.C//////////////////////////////////////
+void set_redirection(t_shell *shell);
 
 #endif
