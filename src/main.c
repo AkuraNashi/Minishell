@@ -44,6 +44,9 @@ int	main(int ac, char **av, char **env)
 	(void)env;
 	init_shell(&shell);
 	add_history("ec$t");
+	add_history("ec$t \"j'ai test\"");
+	add_history("echo  \"salut\" > test");
+	add_history("echo  \"salut\">test");
 	while (1)
 	{
 		shell.read = readline("Minishell >");

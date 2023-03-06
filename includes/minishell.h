@@ -25,7 +25,9 @@ typedef struct s_cmd
 {
 	char			*cmd;
 	char			**cmd_args;
-	int				*fd;
+	int				fd[2];
+	char			*infile;
+	char 			*outfile;
 	struct s_cmd	*next;
 	struct s_cmd	*prev;
 }	t_cmd;
@@ -69,6 +71,7 @@ t_cmd	*ft_pop(t_cmd *lst, t_shell *shell);
 int		is_token(char c);
 int		count_args(t_shell *shell);
 int		check_quotes(t_shell *shell);
+int		check_specific_quotes(t_shell *shell, char c);
 
 ////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////Parsing////////////////////////////////////////////

@@ -12,16 +12,34 @@
 
 #include "minishell.h"
 
-void set_redirection(t_shell *shell)
+//<<HEREDOC
+//< ENTREE
+
+//> Redirection
+//>> APPEND
+void	redirection(t_shell *shell, t_cmd *head)
 {
-	t_cmd *tmp;
+	t_cmd	*tmp;
+	t_cmd	*red;
+
+	red = head;
+	tmp = shell->cmd;
+}
+
+void	set_redirection(t_shell *shell)
+{
+	t_cmd 	*tmp;
+	t_cmd	*head;
 
 	tmp = shell->cmd;
+	head = shell->cmd;
 	while (tmp)
 	{
-		if (tmp->cmd[0] != ' ' && tmp->cmd[0] != '|' && is_token(tmp->cmd[0]))
+		if (tmp->cmd[0] == '>')
+			redirection(shell, head);
+		else
 		{
-			printf("redirection !\n");
+
 		}
 		tmp = tmp->next;
 	}

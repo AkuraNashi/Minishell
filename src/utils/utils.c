@@ -23,9 +23,9 @@ int	is_token(char c)
 		return (1);
 	else if (c == '|')
 		return (1);
-	else if (c == '\'')
-		return (1);
 	else if (c == '"')
+		return (1);
+	else if (c == '\\')
 		return (1);
 	else if (c == '>')
 		return (1);
@@ -55,25 +55,39 @@ int	count_args(t_shell *shell)
 	return (count);
 }
 
-int	check_quotes(t_shell *shell)
+int	check_specific_quotes(t_shell *shell, char c)
 {
-	int		countd;
-	int		countq;
+	int		count;
 	t_cmd	*tmp;
 
-	countd = 0;
-	countq = 0;
 	tmp = shell->cmd;
+	count = 0;
 	while (tmp)
 	{
-		if (tmp->cmd[0] == '\"')
-			countd++;
-		if (tmp->cmd[0] == '\'')
-			countq++;
-		tmp = tmp->next;
+		if (tmp->cmd[0] == c)
+		{
+			count++;
+			tmp = tmp->next;
+			while (tmp)
+			{
+				if (tmp->cmd[0] == c)
+				{
+					count++;
+					break ;
+				}
+				tmp = tmp->next;
+			}
+		}
+		if (tmp)
+			tmp = tmp->next;
 	}
-	if (countd % 2 == 0 && countq % 2 == 0)
+	return (count);
+}
+
+int	check_quotes(t_shell *shell)
+{
+	if (check_specific_quotes(shell, '"') % 2 == 0
+		&& check_specific_quotes(shell, '\'') % 2 == 0)
 		return (1);
-	else
-		return (0);
+	return (0);
 }

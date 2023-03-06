@@ -12,6 +12,31 @@
 
 #include "minishell.h"
 
+void	parse_space_around(t_shell *shell)
+{
+	t_cmd	*tmp;
+
+	tmp = shell->cmd;
+	while (tmp)
+	{
+		if (tmp->cmd[0] == '>' || tmp->cmd[0] == '<' || tmp->cmd[0] == '|')
+		{
+			if (tmp->prev->cmd[0] == ' ')
+			{
+				tmp = tmp->prev;
+				tmp = ft_pop(tmp, shell);
+			}
+			if (tmp->next->cmd[0] == ' ')
+			{
+				tmp = tmp->next;
+				tmp = ft_pop(tmp, shell);
+			}
+		}
+		if (tmp)
+			tmp = tmp->next;
+	}
+}
+
 /// Execute toutes les commandes a faire pour le parsing
 /// \param shell Structure shell
 void	parse_cmd(t_shell *shell)
@@ -22,9 +47,11 @@ void	parse_cmd(t_shell *shell)
 		exit(0);
 	}
 	parse_space(shell);
+	parse_space_around(shell);
 	remove_quotes(shell);
 	parse_dollars(shell);
 	set_redirection(shell);
+//	set_pipe(shell);
 //	get_cmd(shell);
 }
 

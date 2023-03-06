@@ -98,7 +98,7 @@ DEPS	=		$(OBJS:.o=.d)
 # ------------  FLAGS  ------------------------------------------------------- #
 CC		=		gcc
 RM		=		rm -rf
-CFLGS	=		-Wall -Werror -Wextra
+CFLGS	=		-Wall -Werror -Wextra -fsanitize=address
 IFLGS	=		-I $(HDR_DIR)
 DFLGS	=		-MMD -MP -O1
 
