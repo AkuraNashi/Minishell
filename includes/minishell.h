@@ -24,13 +24,26 @@
 typedef struct s_cmd
 {
 	char			*cmd;
-	char			**cmd_args;
-	int				fd[2];
-	char			*infile;
-	char 			*outfile;
 	struct s_cmd	*next;
 	struct s_cmd	*prev;
 }	t_cmd;
+
+typedef struct s_redir
+{
+	char			*infile;
+	char			*outfile;
+	struct s_cmd	*next;
+	struct s_cmd	*prev;
+}	t_redir;
+
+typedef struct s_exec
+{
+	char			**cmd_args;
+	int				pipe[2];
+	t_redir			*redir;
+	struct s_exec	*next;
+	struct s_exec	*prev;
+}	t_exec;
 
 typedef struct s_shell
 {
