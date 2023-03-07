@@ -30,10 +30,10 @@ typedef struct s_cmd
 
 typedef struct s_redir
 {
-	char			*infile;
-	char			*outfile;
-	struct s_cmd	*next;
-	struct s_cmd	*prev;
+	int				infile;
+	int				outfile;
+	struct s_redir	*next;
+	struct s_redir	*prev;
 }	t_redir;
 
 typedef struct s_exec
@@ -79,6 +79,13 @@ void	printf_list(t_cmd *lst);
 void	free_lst(t_shell *shell);
 int		len_cmd(t_shell *shell, char c);
 t_cmd	*ft_pop(t_cmd *lst, t_shell *shell);
+
+////////////////////////////////UTILS_REDIR.C///////////////////////////////////
+t_redir	*lst_create_redir(char *infile, char *outfile);
+void	lst_add_back_redir(t_redir **lst, t_redir *new);
+////////////////////////////////UTILS_EXEC.C////////////////////////////////////
+t_exec	*lst_create_exec(char **str, t_redir *redir);
+void	lst_add_back_exec(t_exec **lst, t_exec *new);
 
 ////////////////////////////////UTILS.C/////////////////////////////////////////
 int		is_token(char c);

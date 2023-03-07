@@ -15,10 +15,10 @@
 /// Ajoute a la fin de la linked list
 /// \param lst Linked list qui va contenir le nouveau element
 /// \param new Linked list a ajouter
-void	lst_add_back(t_cmd **lst, t_cmd *new)
+void	lst_add_back_exec(t_exec **lst, t_exec *new)
 {
-	t_cmd	*current;
-	t_cmd	*tmp_previous;
+	t_exec	*current;
+	t_exec	*tmp_previous;
 
 	if (*lst == NULL)
 		*lst = new;
@@ -39,14 +39,15 @@ void	lst_add_back(t_cmd **lst, t_cmd *new)
 /// Creer une Linked list
 /// \param str Ce que va contenir la linked list
 /// \return La linked list creer
-t_cmd	*lst_create(char *str)
+t_exec	*lst_create_exec(char **str, t_redir *redir)
 {
-	t_cmd	*tmp;
+	t_exec	*tmp;
 
-	tmp = malloc(sizeof(t_cmd));
+	tmp = malloc(sizeof(t_exec));
 	if (!tmp)
 		return (NULL);
-	tmp->cmd = str;
+	tmp->cmd_args = str;
+	tmp->redir = redir;
 	tmp->next = NULL;
 	tmp->prev = NULL;
 	return (tmp);

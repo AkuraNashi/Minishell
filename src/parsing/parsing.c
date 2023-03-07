@@ -50,7 +50,7 @@ void	parse_cmd(t_shell *shell)
 	parse_space_around(shell);
 	remove_quotes(shell);
 	parse_dollars(shell);
-	set_redirection(shell);
+//	set_redirection(shell);
 //	set_pipe(shell);
 //	get_cmd(shell);
 }
