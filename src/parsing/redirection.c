@@ -24,8 +24,8 @@ void	redirection(t_cmd *cmd)
 
 	red = NULL;
 	tmp = cmd;
-	red->outfile = tmp->prev->cmd;
-	red->infile = tmp->next->cmd;
+//	red->outfile = tmp->prev->cmd;
+//	red->infile = tmp->next->cmd;
 
 }
 

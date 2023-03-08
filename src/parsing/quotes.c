@@ -20,7 +20,7 @@ char	*remove_quotes_utils(t_shell *shell, t_cmd *tmp, char c)
 
 	str = malloc(sizeof(char *) * (len_cmd(shell, c) + 1));
 	i = 0;
-	while (tmp->cmd[0] != c)
+	while (tmp->cmd[0] != c && tmp->prev->cmd[0] != '\\')
 	{
 		if (ft_strlen(tmp->cmd) == 1)
 			str[i++] = tmp->cmd[0];

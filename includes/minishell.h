@@ -30,8 +30,8 @@ typedef struct s_cmd
 
 typedef struct s_redir
 {
-	int				infile;
-	int				outfile;
+	char			*infile;
+	char			*outfile;
 	struct s_redir	*next;
 	struct s_redir	*prev;
 }	t_redir;
@@ -49,6 +49,7 @@ typedef struct s_shell
 {
 	char			*read;
 	t_cmd			*cmd;
+	t_exec			*exec;
 }	t_shell;
 //////////////////////////////MAIN.C////////////////////////////////////////////
 void	execution(void);
@@ -113,6 +114,9 @@ void	parse_dollars(t_shell *shell);
 char	*extract_value(char *cmd, int i);
 
 /////////////////////////////REDIRECTION.C//////////////////////////////////////
-void set_redirection(t_shell *shell);
+void	set_redirection(t_shell *shell);
+
+/////////////////////////////PIPE.C/////////////////////////////////////////////
+void	set_pipe(t_shell *shell);
 
 #endif

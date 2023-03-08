@@ -3,17 +3,14 @@
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
-  <component name="CMakePresetLoader"><![CDATA[{
-  "useNewFormat": true
-}]]></component>
   <component name="CMakeRunConfigurationManager">
     <generated>
-      <config projectName="minishell" targetName="ignore" />
-      <config projectName="minishell" targetName="lib" />
-      <config projectName="minishell" targetName="re" />
-      <config projectName="minishell" targetName="all" />
-      <config projectName="minishell" targetName="fclean" />
-      <config projectName="minishell" targetName="Minishell" />
+      <config projectName="Minishell" targetName="ignore" />
+      <config projectName="Minishell" targetName="re" />
+      <config projectName="Minishell" targetName="all" />
+      <config projectName="Minishell" targetName="fclean" />
+      <config projectName="Minishell" targetName="lib" />
+      <config projectName="Minishell" targetName="Minishell" />
     </generated>
   </component>
   <component name="CMakeSettings">
@@ -22,12 +19,19 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1b820e04-a459-431e-8577-ff59e967b920" name="Changes" comment="">
+    <list default="true" id="83b382e9-17ca-40b7-a276-ea35ffe5d385" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Minishell" beforeDir="false" afterPath="$PROJECT_DIR$/Minishell" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/a" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/b" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/includes/minishell.h" beforeDir="false" afterPath="$PROJECT_DIR$/includes/minishell.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/parsing/dollars.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/parsing/dollars.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/parsing/parsing.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/parsing/parsing.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/parsing/quotes.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/parsing/quotes.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/parsing/redirection.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/parsing/redirection.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/utils.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/utils.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/utils/utils_exec.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/utils_exec.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/utils/utils_redir.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/utils_redir.c" afterDir="false" />
     </list>
@@ -53,14 +57,14 @@
         <entry>
           <key>
             <ExternalProjectPojo>
-              <option name="name" value="minishell" />
+              <option name="name" value="Minishell" />
               <option name="path" value="$PROJECT_DIR$" />
             </ExternalProjectPojo>
           </key>
           <value>
             <list>
               <ExternalProjectPojo>
-                <option name="name" value="minishell" />
+                <option name="name" value="Minishell" />
                 <option name="path" value="$PROJECT_DIR$" />
               </ExternalProjectPojo>
             </list>
@@ -82,10 +86,13 @@
     <option name="majorVersion" value="2022" />
     <option name="minorVersion" value="1.1" />
   </component>
-  <component name="ProjectId" id="2MZNgOJNNGOJmjRerisUp2SIexP" />
+  <component name="ProjectId" id="2MhK02VslbkWmfgyr3DDviitQI9" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
+    <option name="autoscrollFromSource" value="true" />
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
+    <option name="showMembers" value="true" />
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
@@ -99,37 +106,32 @@
   }
 }</component>
   <component name="RunManager" selected="Makefile Application.all">
-    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
-      <method v="2">
-        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Minishell" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="minishell" TARGET_NAME="Minishell" CONFIG_NAME="Minishell" version="1">
+    <configuration name="Minishell" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Minishell" TARGET_NAME="Minishell" CONFIG_NAME="Minishell" version="1">
       <method v="2">
         <option name="CLION.COMPOUND.BUILD" enabled="true" />
       </method>
     </configuration>
-    <configuration name="all" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="minishell" TARGET_NAME="all" CONFIG_NAME="all" version="1">
+    <configuration name="all" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Minishell" TARGET_NAME="all" CONFIG_NAME="all" version="1">
       <method v="2">
         <option name="CLION.COMPOUND.BUILD" enabled="true" />
       </method>
     </configuration>
-    <configuration name="fclean" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="minishell" TARGET_NAME="fclean" CONFIG_NAME="fclean" version="1">
+    <configuration name="fclean" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Minishell" TARGET_NAME="fclean" CONFIG_NAME="fclean" version="1">
       <method v="2">
         <option name="CLION.COMPOUND.BUILD" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ignore" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="minishell" TARGET_NAME="ignore" CONFIG_NAME="ignore" version="1">
+    <configuration name="ignore" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Minishell" TARGET_NAME="ignore" CONFIG_NAME="ignore" version="1">
       <method v="2">
         <option name="CLION.COMPOUND.BUILD" enabled="true" />
       </method>
     </configuration>
-    <configuration name="lib" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="minishell" TARGET_NAME="lib" CONFIG_NAME="lib" version="1">
+    <configuration name="lib" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Minishell" TARGET_NAME="lib" CONFIG_NAME="lib" version="1">
       <method v="2">
         <option name="CLION.COMPOUND.BUILD" enabled="true" />
       </method>
     </configuration>
-    <configuration name="re" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="minishell" TARGET_NAME="re" CONFIG_NAME="re" version="1">
+    <configuration name="re" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Minishell" TARGET_NAME="re" CONFIG_NAME="re" version="1">
       <method v="2">
         <option name="CLION.COMPOUND.BUILD" enabled="true" />
       </method>
@@ -146,27 +148,18 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="1b820e04-a459-431e-8577-ff59e967b920" name="Changes" comment="" />
-      <created>1677951185436</created>
+      <changelist id="83b382e9-17ca-40b7-a276-ea35ffe5d385" name="Changes" comment="" />
+      <created>1678214148572</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1677951185436</updated>
-      <workItem from="1677951188328" duration="3755000" />
+      <updated>1678214148572</updated>
+      <workItem from="1678214150932" duration="2200000" />
+      <workItem from="1678216735981" duration="1434000" />
+      <workItem from="1678292993754" duration="4697000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
-  </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
   </component>
 </project>

@@ -25,6 +25,8 @@ int	is_token(char c)
 		return (1);
 	else if (c == '"')
 		return (1);
+	else if (c == '\'')
+		return (1);
 	else if (c == '\\')
 		return (1);
 	else if (c == '>')

@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   dollars.c                                          :+:      :+:    :+:   */
+/*   pipe.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lcamilo- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,44 +12,18 @@
 
 #include "minishell.h"
 
-char	*extract_value(char *cmd, int i)
+void	set_pipe(t_shell *shell)
 {
-	char	*str;
-	char	*env;
-	char	*tmp;
-
-	str = ft_substr(cmd, i + 1, ft_strlen(cmd) - i);
-	env = getenv(str);
-	free(str);
-	tmp = ft_substr(cmd, 0, i);
-	str = ft_strjoin(tmp, env);
-	free(cmd);
-	free(tmp);
-	return (str);
-}
-
-void	parse_dollars(t_shell *shell)
-{
+	t_exec	*exec;
 	t_cmd	*tmp;
-	int		i;
-	char	c;
 
 	tmp = shell->cmd;
+	exec = shell->exec;
 	while (tmp)
 	{
-		i = 0;
-		while (tmp->cmd[i])
+		if (tmp->cmd[0] == '|')
 		{
-			if (tmp->cmd[i] == '\'')
-				c = '\'';
-			else if (tmp->cmd[i] == '\'' && c == '\'')
-				c = 't';
-			else if (tmp->cmd[i] == '$' && c != '\'')
-			{
-				tmp->cmd = extract_value(tmp->cmd, i);
-				break ;
-			}
-			i++;
+			
 		}
 		tmp = tmp->next;
 	}

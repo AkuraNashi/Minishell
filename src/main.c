@@ -33,6 +33,7 @@ void	init_shell(t_shell *shell)
 {
 	shell->cmd = NULL;
 	shell->read = NULL;
+	shell->exec = NULL;
 }
 
 int	main(int ac, char **av, char **env)
@@ -43,13 +44,17 @@ int	main(int ac, char **av, char **env)
 	(void)av;
 	(void)env;
 	init_shell(&shell);
+	///////////////////////////UNIT_TEST////////////////////////////////////////
 	add_history("ec$t");
+	add_history("echo '$t'");
+	add_history("echo \"$t\"");
 	add_history("ec$t \"j'ai test\"");
 	add_history("echo \"salut\" > test");
 	add_history("echo \"salut\">test");
+	add_history("echo \"test\\\"\"");
 	while (1)
 	{
-		shell.read = readline("Minishell >");
+		shell.read = readline("Minishell ");
 		if (!ft_strncmp(shell.read, "exit", 4))
 			break ;
 		else if (shell.read)
