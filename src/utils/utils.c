@@ -69,27 +69,19 @@ int	check_specific_quotes(t_shell *shell, char c)
 		if (tmp->cmd[0] == c)
 		{
 			count++;
-			tmp = tmp->next;
-			while (tmp)
-			{
-				if (tmp->cmd[0] == c)
-				{
-					count++;
-					break ;
-				}
+			while (tmp->cmd[0] != c)
 				tmp = tmp->next;
-			}
 		}
 		if (tmp)
 			tmp = tmp->next;
 	}
+	printf("c : [%c] count : [%d]\n", c, count);
 	return (count);
 }
 
 int	check_quotes(t_shell *shell)
 {
-	if (check_specific_quotes(shell, '"') % 2 == 0
-		&& check_specific_quotes(shell, '\'') % 2 == 0)
+	if (check_specific_quotes(shell, '"') % 2 == 0)
 		return (1);
 	return (0);
 }

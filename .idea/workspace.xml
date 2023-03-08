@@ -21,19 +21,9 @@
   <component name="ChangeListManager">
     <list default="true" id="83b382e9-17ca-40b7-a276-ea35ffe5d385" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Minishell" beforeDir="false" afterPath="$PROJECT_DIR$/Minishell" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/a" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/b" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/minishell.h" beforeDir="false" afterPath="$PROJECT_DIR$/includes/minishell.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/parsing/dollars.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/parsing/dollars.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/parsing/parsing.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/parsing/parsing.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/parsing/quotes.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/parsing/quotes.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/parsing/redirection.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/parsing/redirection.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/utils/utils.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/utils.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/utils_exec.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/utils_exec.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/utils_redir.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/utils_redir.c" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -106,6 +96,11 @@
   }
 }</component>
   <component name="RunManager" selected="Makefile Application.all">
+    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
+      <method v="2">
+        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Minishell" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Minishell" TARGET_NAME="Minishell" CONFIG_NAME="Minishell" version="1">
       <method v="2">
         <option name="CLION.COMPOUND.BUILD" enabled="true" />

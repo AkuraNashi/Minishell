@@ -48,10 +48,11 @@ int	main(int ac, char **av, char **env)
 	add_history("ec$t");
 	add_history("echo '$t'");
 	add_history("echo \"$t\"");
-	add_history("ec$t \"j'ai test\"");
 	add_history("echo \"salut\" > test");
 	add_history("echo \"salut\">test");
 	add_history("echo \"test\\\"\"");
+	add_history("ec$t \"j'ai test\"");
+	add_history("echo \"'\"");
 	while (1)
 	{
 		shell.read = readline("Minishell ");
