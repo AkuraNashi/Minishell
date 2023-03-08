@@ -22,7 +22,6 @@
     <list default="true" id="83b382e9-17ca-40b7-a276-ea35ffe5d385" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Minishell" beforeDir="false" afterPath="$PROJECT_DIR$/Minishell" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/minishell.h" beforeDir="false" afterPath="$PROJECT_DIR$/includes/minishell.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/utils/utils.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/utils.c" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

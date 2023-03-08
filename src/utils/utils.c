@@ -66,10 +66,20 @@ int	check_specific_quotes(t_shell *shell, char c, char quotes)
 	count = 0;
 	while (tmp)
 	{
-
+		if (tmp->cmd[0] == quotes)
+		{
+			tmp = tmp->next;
+			while (tmp->next)
+			{
+				if (tmp->cmd[0] == quotes)
+					break;
+				tmp = tmp->next;
+			}
+		}
+		if (tmp->cmd[0] == c)
+			count++;
 		tmp = tmp->next;
 	}
-	printf("c [%c] count [%d]\n", c, count);
 	return (count);
 }
 
