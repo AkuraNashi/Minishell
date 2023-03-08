@@ -57,7 +57,7 @@ int	count_args(t_shell *shell)
 	return (count);
 }
 
-int	check_specific_quotes(t_shell *shell, char c)
+int	check_specific_quotes(t_shell *shell, char c, char quotes)
 {
 	int		count;
 	t_cmd	*tmp;
@@ -66,22 +66,17 @@ int	check_specific_quotes(t_shell *shell, char c)
 	count = 0;
 	while (tmp)
 	{
-		if (tmp->cmd[0] == c)
-		{
-			count++;
-			while (tmp->cmd[0] != c)
-				tmp = tmp->next;
-		}
-		if (tmp)
-			tmp = tmp->next;
+
+		tmp = tmp->next;
 	}
-	printf("c : [%c] count : [%d]\n", c, count);
+	printf("c [%c] count [%d]\n", c, count);
 	return (count);
 }
 
 int	check_quotes(t_shell *shell)
 {
-	if (check_specific_quotes(shell, '"') % 2 == 0)
+	if (check_specific_quotes(shell, '"', '\'') % 2 == 0
+		&& check_specific_quotes(shell, '\'', '"') % 2 == 0)
 		return (1);
 	return (0);
 }

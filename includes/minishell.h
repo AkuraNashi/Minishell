@@ -92,7 +92,7 @@ void	lst_add_back_exec(t_exec **lst, t_exec *new);
 int		is_token(char c);
 int		count_args(t_shell *shell);
 int		check_quotes(t_shell *shell);
-int		check_specific_quotes(t_shell *shell, char c);
+int		check_specific_quotes(t_shell *shell, char c, char quotes);
 
 ////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////Parsing////////////////////////////////////////////
