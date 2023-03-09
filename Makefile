@@ -45,9 +45,7 @@ SRC 		= 	main.c							\
 				parsing/redirection.c			\
 				utils/utils_lst.c				\
 				utils/utils_lst2.c				\
-				utils/utils.c					\
-				utils/utils_redir.c				\
-				utils/utils_exec.c
+				utils/utils.c
 
 # ------------  FILEPATHS  --------------------------------------------------- #
 OBJS				= ${SRC:.c=.o}
