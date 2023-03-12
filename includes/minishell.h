@@ -28,12 +28,20 @@ typedef struct s_cmd
 	struct s_cmd	*prev;
 }	t_cmd;
 
+typedef struct s_redir
+{
+	char			*file;
+	struct s_cmd	*next;
+	struct s_cmd	*prev;
+}	t_redir;
+
 typedef struct s_shell
 {
 	char			*read;
 	char			**cmd_args;
 	int				pipe[2];
 	t_cmd			*cmd;
+//	t_redir			*redir;
 }	t_shell;
 //////////////////////////////MAIN.C////////////////////////////////////////////
 void	execution(void);
@@ -67,7 +75,7 @@ t_cmd	*ft_pop(t_cmd *lst, t_shell *shell);
 
 ////////////////////////////////UTILS.C/////////////////////////////////////////
 int		is_token(char c);
-int		count_args(t_shell *shell);
+int		count_args(t_cmd *tmp);
 int		check_quotes(t_shell *shell);
 int		check_specific_quotes(t_shell *shell, char c, char quotes);
 

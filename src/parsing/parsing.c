@@ -50,9 +50,13 @@ void	parse_cmd(t_shell *shell)
 	parse_space_around(shell);
 	parse_dollars(shell);
 	remove_quotes(shell);
-//	set_pipe(shell);
-//	set_redirection(shell);
-//	get_cmd(shell);
+	get_cmd(shell);
+}
+
+void	parse_rd_token(t_shell *shell, int *j)
+{
+	lst_add_back(&shell->cmd, lst_create(ft_substr(shell->read, 0, 1)));
+	*j = *j + 1;
 }
 
 /// Recuperer le Readline du shell et le mets dans une linked list.
@@ -69,6 +73,8 @@ t_cmd	*parse_rd(t_shell *shell)
 	j = 0;
 	while (shell->read[i])
 	{
+		if (i == 0 && is_token(shell->read[i]))
+			parse_rd_token(shell, &j);
 		if (is_token(shell->read[i + 1]) || !shell->read[i + 1])
 		{
 			if (i - j + 1 > 0)
@@ -91,24 +97,34 @@ t_cmd	*parse_rd(t_shell *shell)
 /// \param shell Structure shell
 void	get_cmd(t_shell *shell)
 {
-	char	**args;
+//	char	**args;
 	t_cmd	*tmp;
-	int		i;
+//	int		i;
 
-	args = malloc(sizeof(char *) * (count_args(shell) + 1));
-	if (!args)
-		printf("Erreur malloc, implementation error malloc requise...\n");
 	tmp = shell->cmd;
-	i = 0;
 	while (tmp)
 	{
-		if (tmp->cmd[0] != ' ' && is_token(tmp->cmd[0]))
-			break ;
-		if (tmp->cmd[0] != ' ')
-			args[i++] = tmp->cmd;
-		tmp = tmp->next;
+//		args = malloc(sizeof(char *) * (count_args(shell) + 1));
+		printf("count args [%d]\n", count_args(tmp));
+		while (tmp && tmp->cmd[0] != '|' && tmp->cmd[0] != '>' && tmp->cmd[0]
+		!= '<')
+			tmp = tmp->next;
+		if (tmp)
+			tmp = tmp->next;
 	}
-	args[i] = NULL;
+//	if (!args)
+//		printf("Erreur malloc, implementation error malloc requise...\n");
+//	tmp = shell->cmd;
+//	i = 0;
+//	while (tmp)
+//	{
+//		if (tmp->cmd[0] != ' ' && is_token(tmp->cmd[0]))
+//			break ;
+//		if (tmp->cmd[0] != ' ')
+//			args[i++] = tmp->cmd;
+//		tmp = tmp->next;
+//	}
+//	args[i] = NULL;
 }
 
 /// Enleve tout les espaces inutiles, ne garde qu'un seul espace

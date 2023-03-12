@@ -33,7 +33,6 @@ void	init_shell(t_shell *shell)
 {
 	shell->cmd = NULL;
 	shell->read = NULL;
-	shell->exec = NULL;
 }
 
 int	main(int ac, char **av, char **env)
@@ -50,9 +49,11 @@ int	main(int ac, char **av, char **env)
 	add_history("echo \"$t\"");
 	add_history("echo \"salut\" > test");
 	add_history("echo \"salut\">test");
-	add_history("echo \"test\\\"\"");
 	add_history("ec$t \"j'ai test\"");
 	add_history("echo \"'\"");
+	add_history("ls -l -a | wc");
+	add_history("<makefile cat");
+	add_history("< makefile cat");
 	while (1)
 	{
 		shell.read = readline("Minishell ");

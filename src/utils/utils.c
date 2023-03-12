@@ -39,18 +39,19 @@ int	is_token(char c)
 /// Compte les arguments afin de pouvoir creer la taille d'un **char
 /// \param shell Structure shell
 /// \return nb d'arguments
-int	count_args(t_shell *shell)
+int	count_args(t_cmd *tmp)
 {
 	int		count;
-	t_cmd	*tmp;
 
-	tmp = shell->cmd;
-	count = 1;
+	count = 0;
+	if (!is_token(tmp->cmd[0]))
+		count = 1;
 	while (tmp)
 	{
-		if (is_token(tmp->cmd[0]))
+		if (tmp->cmd[0] != ' ' && is_token(tmp->cmd[0]))
 			break ;
-		if (tmp->next && !is_token(tmp->next->cmd[0]))
+		if (tmp->next && !is_token(tmp->next->cmd[0])
+			&& !is_token(tmp->prev->cmd[0]))
 			count++;
 		tmp = tmp->next;
 	}
@@ -72,7 +73,7 @@ int	check_specific_quotes(t_shell *shell, char c, char quotes)
 			while (tmp->next)
 			{
 				if (tmp->cmd[0] == quotes)
-					break;
+					break ;
 				tmp = tmp->next;
 			}
 		}
