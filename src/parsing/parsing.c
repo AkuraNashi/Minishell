@@ -97,34 +97,29 @@ t_cmd	*parse_rd(t_shell *shell)
 /// \param shell Structure shell
 void	get_cmd(t_shell *shell)
 {
-//	char	**args;
+	char	**args;
 	t_cmd	*tmp;
-//	int		i;
+	int		i;
 
 	tmp = shell->cmd;
 	while (tmp)
 	{
-//		args = malloc(sizeof(char *) * (count_args(shell) + 1));
-		printf("count args [%d]\n", count_args(tmp));
+		i = 0;
+		args = malloc(sizeof(char *) * (count_args(shell->cmd) + 1));
 		while (tmp && tmp->cmd[0] != '|' && tmp->cmd[0] != '>' && tmp->cmd[0]
 		!= '<')
+		{
+			if (tmp->cmd[0] != ' ')
+			{
+				printf("tmp cmd : [%s]\n", tmp->cmd);
+				args[i] = tmp->cmd;
+				i++;
+			}
 			tmp = tmp->next;
+		}
 		if (tmp)
 			tmp = tmp->next;
 	}
-//	if (!args)
-//		printf("Erreur malloc, implementation error malloc requise...\n");
-//	tmp = shell->cmd;
-//	i = 0;
-//	while (tmp)
-//	{
-//		if (tmp->cmd[0] != ' ' && is_token(tmp->cmd[0]))
-//			break ;
-//		if (tmp->cmd[0] != ' ')
-//			args[i++] = tmp->cmd;
-//		tmp = tmp->next;
-//	}
-//	args[i] = NULL;
 }
 
 /// Enleve tout les espaces inutiles, ne garde qu'un seul espace

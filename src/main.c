@@ -51,9 +51,9 @@ int	main(int ac, char **av, char **env)
 	add_history("echo \"salut\">test");
 	add_history("ec$t \"j'ai test\"");
 	add_history("echo \"'\"");
-	add_history("ls -l -a | wc");
 	add_history("<makefile cat");
 	add_history("< makefile cat");
+	add_history("ls -l -a | wc");
 	while (1)
 	{
 		shell.read = readline("Minishell ");
