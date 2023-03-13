@@ -111,11 +111,18 @@ void	get_cmd(t_shell *shell)
 		{
 			if (tmp->cmd[0] != ' ')
 			{
-				printf("tmp cmd : [%s]\n", tmp->cmd);
 				args[i] = tmp->cmd;
 				i++;
 			}
 			tmp = tmp->next;
+		}
+		args[i] = NULL;
+		i = 0;
+		printf("===============\n");
+		while (args[i])
+		{
+			printf("args : [%s]\n", args[i]);
+			i++;
 		}
 		if (tmp)
 			tmp = tmp->next;
