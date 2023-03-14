@@ -48,9 +48,9 @@ int	count_args(t_cmd *tmp)
 		count = 1;
 	while (tmp)
 	{
-		if (tmp->cmd[0] != ' ' && is_token(tmp->cmd[0]))
+		if (tmp->cmd && tmp->cmd[0] != ' ' && is_token(tmp->cmd[0]))
 			break ;
-		if (tmp->next && !is_token(tmp->next->cmd[0])
+		if (tmp->next && tmp->next->cmd && !is_token(tmp->next->cmd[0])
 			&& !is_token(tmp->prev->cmd[0]))
 			count++;
 		tmp = tmp->next;

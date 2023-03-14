@@ -51,6 +51,21 @@ void	parse_cmd(t_shell *shell)
 	parse_dollars(shell);
 	remove_quotes(shell);
 	get_cmd(shell);
+	int i = 0;
+	while (shell->exec)
+	{
+		i = 0;
+		printf("===============\n");
+		while (shell->exec->cmd_args[i])
+		{
+			printf("|   args [%s]   |\n", shell->exec->cmd_args[i]);
+			i++;
+		}
+//		if (shell->exec->redir_to)
+//			printf("|   redir [%s]   |\n", shell->exec->redir_to);
+		printf("===============\n");
+		shell->exec = shell->exec->next;
+	}
 }
 
 void	parse_rd_token(t_shell *shell, int *j)
@@ -92,43 +107,6 @@ t_cmd	*parse_rd(t_shell *shell)
 	return (shell->cmd);
 }
 
-///WIP
-/// Permet de creer une linked list contenant les commandes a executer
-/// \param shell Structure shell
-void	get_cmd(t_shell *shell)
-{
-	char	**args;
-	t_cmd	*tmp;
-	int		i;
-
-	tmp = shell->cmd;
-	while (tmp)
-	{
-		i = 0;
-		args = malloc(sizeof(char *) * (count_args(shell->cmd) + 1));
-		while (tmp && tmp->cmd[0] != '|' && tmp->cmd[0] != '>' && tmp->cmd[0]
-		!= '<')
-		{
-			if (tmp->cmd[0] != ' ')
-			{
-				args[i] = tmp->cmd;
-				i++;
-			}
-			tmp = tmp->next;
-		}
-		args[i] = NULL;
-		i = 0;
-		printf("===============\n");
-		while (args[i])
-		{
-			printf("args : [%s]\n", args[i]);
-			i++;
-		}
-		if (tmp)
-			tmp = tmp->next;
-	}
-}
-
 /// Enleve tout les espaces inutiles, ne garde qu'un seul espace
 /// afin de pouvoir parser les commandes futures
 /// \param shell Structure shell
@@ -149,7 +127,7 @@ void	parse_space(t_shell *shell)
 			if (tmp)
 				tmp = tmp->next;
 		}
-		else if (tmp->cmd[0] == ' ' && tmp->next->cmd[0] == ' ')
+		else if (tmp->cmd[0] == ' ' && tmp->next && tmp->next->cmd[0] == ' ')
 			tmp = ft_pop(tmp, shell);
 		else
 			tmp = tmp->next;

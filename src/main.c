@@ -32,6 +32,7 @@ void	parsing(t_shell *shell)
 void	init_shell(t_shell *shell)
 {
 	shell->cmd = NULL;
+	shell->exec = NULL;
 	shell->read = NULL;
 }
 

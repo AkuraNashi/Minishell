@@ -43,6 +43,7 @@ SRC 		= 	main.c							\
 				parsing/dollars.c				\
 				parsing/pipe.c					\
 				parsing/redirection.c			\
+				parsing/get_cmd.c				\
 				utils/utils_lst.c				\
 				utils/utils_lst2.c				\
 				utils/utils.c
